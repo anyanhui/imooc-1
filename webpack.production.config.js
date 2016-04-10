@@ -50,9 +50,9 @@ var config = {
     },
     postcss: [
         require('precss')(),
-        require('cssnext')(),
+        //require('cssnext')(),
         require('cssnano')(),
-        require('postcss-alias')(),
+        //require('postcss-alias')(),
         require('autoprefixer')({browsers: ['last 2 versions']})
     ],
     resolve: {

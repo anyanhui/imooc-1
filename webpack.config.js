@@ -61,9 +61,9 @@ var config = {
     //postCss插件
     postcss: [
         require('precss')(),//可以像sass那样写css
-        require('cssnext')(),//试用未来的css语法
+        //require('cssnext')(),//试用未来的css语法
         require('cssnano')(),//优化和压缩css代码
-        require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
+        //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
         require('autoprefixer')({browsers: ['last 2 versions']})
     ],
     resolve: {
