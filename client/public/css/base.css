@@ -1,0 +1,59 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*@font-face{*/
+/*font-family: 'fontNameRegular';*/
+/*src: url('../font/fzlt_GBK1.00.TTF');*/
+/*}*/
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    /*color: #333;*/
+    font-family: "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft Yahei", "微软雅黑", Tahoma, Arial, STHeiti, sans-serif;
+    /*font-size: 20px;*/
+}
+
+body {
+    min-width: 1200px;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    /*background: url("../img/body_bg.png") no-repeat fixed 0 0/100% 100%;*/
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+#app {
+    height: 100%;
+}
+
+/*@media only screen and (max-width: 481px) {*/
+/*html {*/
+/*font-size:940%!important*/
+/*}*/
+/*}*/
+
+/*@media only screen and (min-width: 561px) {*/
+/*html {*/
+/*font-size:1090%!important*/
+/*}*/
+/*}*/

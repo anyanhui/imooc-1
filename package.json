@@ -1,0 +1,21 @@
+{
+  "name": "imooc",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "moment": "^2.12.0",
+    "mongoose": "^4.4.12",
+    "webpack": "^1.12.14"
+  }
+}
