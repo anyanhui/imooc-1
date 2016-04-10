@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+//var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     //new CommonsChunkPlugin("admin-commons.js", ["ap1", "ap2"])
@@ -21,20 +21,20 @@ var config = {
             'webpack-dev-server/client?http://localhost:3000',
             'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator等es7语法
-            './src/app'
-        ],
-        example: ['babel-polyfill', './src/example']
+            './client/app'
+        ]
+        //example: ['babel-polyfill', './client/example']
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://localhost:3000/dist/',
+        path: path.resolve(__dirname, 'client/public/dist'),
+        publicPath: 'http://localhost:3000/client/public/',
         filename: '[name].min.js'
     },
     module: {
         loaders: [{
             test: /\.jsx?$/,
-            //exclude: /node_modules/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
+            //exclude: nodeModulesPath,
             loader: 'babel'
             //loader: 'react-hot!babel'
             //query: {
@@ -43,11 +43,11 @@ var config = {
             //}
         }, {
             test: /\.scss/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         }, {
             test: /\.css$/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
@@ -69,11 +69,9 @@ var config = {
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
         //alias: {
-        //    'react':path.resolve(nodeModulesPath,'react/dist/react.min.js'),
-        //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.min.js'),
-        //    'redux':path.resolve(nodeModulesPath,'redux/dist/redux.min.js'),
-        //    'immutable':path.resolve(nodeModulesPath,'immutable/dist/immutable.min.js'),
-        //    'react-redux':path.resolve(nodeModulesPath,'react-redux/dist/react-redux.min.js')
+        //    'react':path.resolve(nodeModulesPath,'react/dist/react.js'),
+        //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.js'),
+        //    'immutable':path.resolve(nodeModulesPath,'immutable/dist/immutable.js')
         //}
     },
     devServer: {
@@ -89,7 +87,7 @@ var config = {
     //    'react':'React',//CDN
     //    'react-dom':'ReactDOM'
     //},
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     plugins: plugins
 };
 module.exports = config;

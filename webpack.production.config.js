@@ -18,13 +18,12 @@ var config = {
     entry: {
         app: [
             'babel-polyfill',//为了能支持async,await等es7语法
-            './src/app'
-        ],
-        example: ['babel-polyfill', './src/example']
+            './client/app'
+        ]
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: './dist/',
+        path: path.resolve(__dirname, 'client/public/dist'),
+        publicPath: './client/public/',
         filename: '[name].min.js'
     },
     module: {
