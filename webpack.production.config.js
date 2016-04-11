@@ -29,15 +29,15 @@ var config = {
     module: {
         loaders: [{
             test: /\.jsx?$/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
             loader: 'babel'
         }, {
             test: /\.scss/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         }, {
             test: /\.css$/,
-            exclude: nodeModulesPath,
+            exclude: /node_modules/,
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
@@ -57,6 +57,9 @@ var config = {
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
     },
+    //externals:{
+    //    'jquery':'jQuery'//CDN
+    //},
     plugins: plugins
 };
 module.exports = config;

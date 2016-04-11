@@ -42,9 +42,9 @@ body {
     box-sizing: inherit;
 }
 
-#app {
-    height: 100%;
-}
+/*#app {*/
+    /*height: 100%;*/
+/*}*/
 
 /*@media only screen and (max-width: 481px) {*/
 /*html {*/

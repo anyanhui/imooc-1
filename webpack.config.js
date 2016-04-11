@@ -18,10 +18,10 @@ var plugins = [
 var config = {
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:3000',
-            'webpack/hot/only-dev-server',
-            'babel-polyfill',//为了能支持async,await,Generator等es7语法
-            './client/app'
+            //'webpack-dev-server/client?http://localhost:3000',
+            //'webpack/hot/only-dev-server',
+            'babel-polyfill',//为了能支持async,await,Generator
+            './client/app/app'
         ]
         //example: ['babel-polyfill', './client/example']
     },
@@ -30,6 +30,7 @@ var config = {
         publicPath: 'http://localhost:3000/client/public/',
         filename: '[name].min.js'
     },
+    watch:true,
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -74,20 +75,20 @@ var config = {
         //    'immutable':path.resolve(nodeModulesPath,'immutable/dist/immutable.js')
         //}
     },
-    devServer: {
-        historyApiFallback: true,
-        contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
-        noInfo: true, //  --no-info option
-        hot: true,        //自动刷新
-        inline: true,
-        port: 3000,
-        progress: true
-    },
-    //externals:{
-    //    'react':'React',//CDN
-    //    'react-dom':'ReactDOM'
+    //devServer: {
+    //    historyApiFallback: true,
+    //    contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+    //    noInfo: true, //  --no-info option
+    //    hot: true,        //自动刷新
+    //    inline: true,
+    //    port: 3000,
+    //    progress: true
     //},
-    devtool: 'eval-source-map',
+    //externals:{
+    //    'jquery':'jQuery'//CDN
+    //},
+    //devtool: 'eval-source-map',
+    devtool: 'source-map',
     plugins: plugins
 };
 module.exports = config;
