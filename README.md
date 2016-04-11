@@ -1,3 +1,3 @@
-react-redux
+react-redux-es6
 ===========
 
