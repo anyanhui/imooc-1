@@ -1,12 +1,13 @@
 .container {
   height: 100%;
   overflow: hidden;
-  .item {
-    height: 0;
-    transition: height .5s;
-    overflow: hidden;
-  }
-  .item_active {
+  .item_container {
     height: 100%;
+    position: relative;
+    transition: top .5s;
+    .item {
+      height: 100%;
+      overflow: hidden;
+    }
   }
 }
