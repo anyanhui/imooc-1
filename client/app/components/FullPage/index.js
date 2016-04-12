@@ -31,14 +31,58 @@ class FullPage extends Component {
             })
         }
     }
-
+    navClick(active,next){
+        if(active!==next){
+            this.setState({
+                active:next
+            })
+        }
+    }
+    minHeightHandler(minHeight){
+        /*let scrollable=this.state.scrollable;
+        if(window.innerHeight<=minHeight&&!scrollable){
+            this.setState({
+                scrollable:true
+            })
+        }else if(window.innerHeight>minHeight&&scrollable){
+            this.setState({
+                scrollable:false
+            })
+        }*/
+    }
+    componentDidMount(){
+       /* let minHeight=this.props.minHeight;
+        if(minHeight){
+            window.addEventListener('resize',()=>{this.minHeightHandler(minHeight)},false)
+        }*/
+    }
+    componentUnMount(){
+        //window.removeEventListener('resize',e=>{this.minHeightHandler(e)},false);
+    }
     render() {
         this.time = new Date().getTime();
-        const {children}=this.props;
+        const {
+            minHeight=500,
+            nav=false,
+            children
+            }=this.props;
         const active = this.state.active;
         return (
-            <div className={styles.container}
-                 onWheel={(e)=>this.pageScroll(e)}>
+            <div className={styles.container} style={{minHeight:minHeight}}
+                 onWheel={e=>this.pageScroll(e)}>
+                <ul className={styles.nav_bar}>
+                    {
+                        nav?Children.map(children,(item,i)=>{
+                            return(
+                                <li className={cls({
+                                    [styles.nav_item]:true,
+                                    [styles.nav_active]:i===active
+                                })}
+                                onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
+                            )
+                        }):null
+                    }
+                </ul>
                 <div className={styles.item_container} style={{top:`-${active*100}%`}}>
                     {
                         Children.map(children, (item, i)=> {
