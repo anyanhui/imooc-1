@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var getPxToRemoptions=function(){
     var propWhiteList=[
-        'width','line-height',
+        'width',
         'margin','margin-right','margin-left','margin-top','margin-bottom',
         'padding','padding-right','padding-left','padding-top','padding-bottom',
         'top','left','right','bottom'
