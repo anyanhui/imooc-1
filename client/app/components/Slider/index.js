@@ -48,7 +48,7 @@ class Slider extends Component{
     render(){
         let {
             dot=true,
-            arrow=true,
+            arrow=false,
             width='100%',
             height=300,
             children

@@ -4,7 +4,7 @@ class Item extends Component{
     render(){
         const bgImg=this.props.bgImg;
         return(
-            <div className={styles.item} style={{backgroundImage:`url(${bgImg})`}}>
+            <div className={styles.item} style={{backgroundImage:bgImg?`url(${bgImg})`:'none'}}>
                 {this.props.children}
             </div>
         )

@@ -1,5 +1,26 @@
 var webpack = require('webpack');
 var path = require('path');
+var getPxToRemoptions=function(){
+    var propWhiteList=[
+        'width','line-height',
+        'margin','margin-right','margin-left','margin-top','margin-bottom',
+        'padding','padding-right','padding-left','padding-top','padding-bottom',
+        'top','left','right','bottom'
+    ];
+    return {
+        /*
+         rootValue,取决于设计稿是按照什么设备的尺寸来设计的，
+         那这就是对应于为该尺寸媒体查询@media的那个html font-size值
+         */
+        rootValue: 23.5,
+        unitPrecision: 5,//保留几位小数点
+        propWhiteList: propWhiteList,
+        selectorBlackList: [],
+        replace: true,
+        mediaQuery: true,//在media中的单位是否也进行转换
+        minPixelValue: 0
+    };
+}
 //var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
@@ -61,11 +82,14 @@ var config = {
     },
     //postCss插件
     postcss: [
-        require('precss')(),//可以像sass那样写css
+        //可以像sass那样写postcss
+        require('precss')(),
         //require('cssnext')(),//试用未来的css语法
         require('cssnano')(),//优化和压缩css代码
         //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
-        require('autoprefixer')({browsers: ['last 2 versions']})
+        require('autoprefixer')({browsers: ['last 2 versions']}),
+        //移动端web一般才会需要这个
+        require('postcss-pxtorem')(getPxToRemoptions())
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']

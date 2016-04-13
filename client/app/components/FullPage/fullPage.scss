@@ -6,41 +6,42 @@
     position: absolute;
     z-index: 1;
     left:50%;
+    top: 10px;
     transform: translateX(-50%);
-    height: 80px;
+    height: 40px;
     .nav_item{
       width: auto;
       height:100%;
       float: left;
-      padding:0 5px;
-      margin-right: 5px;
-      line-height: 80px;
+      padding:0 2px;
+      margin-right: 2px;
+      line-height: 40px;
       text-align: center;
       position: relative;
       color: #fff;
-      font-size: 20px;
+      font-size: 16px;
       &::after{
         content: ' ';
         position: absolute;
         background: #40a070;
         height: 3px;
-        width: 0;
-        top: 10px;
+        width: 100%;
+        top: 5px;
         left:50%;
-        transform: translateX(-50%);
-        transition: width .3s;
+        transform: translateX(-50%) scaleX(0);
+        transition: transform .3s;
       }
       &:hover{
         cursor: pointer;
         &::after{
-          width:100%;
+          transform: translateX(-50%) scaleX(1);
         }
       }
     }
     .nav_active{
       color: #40a070;
       &::after{
-        width:100%;
+        transform: translateX(-50%) scaleX(1);
       }
     }
   }

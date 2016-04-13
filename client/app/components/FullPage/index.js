@@ -11,7 +11,9 @@ class FullPage extends Component {
     }
 
     static Item = Item;
-
+    touchMove(e){
+        console.log(e);
+    }
     pageScroll(e) {
         let time = this.time;
         let now = new Date().getTime();
@@ -69,8 +71,9 @@ class FullPage extends Component {
         const active = this.state.active;
         return (
             <div className={styles.container} style={{minHeight:minHeight}}
-                 onWheel={e=>this.pageScroll(e)}>
-                <ul className={styles.nav_bar}>
+                 onWheel={e=>this.pageScroll(e)}
+                 onTouchStart={e=>this.touchMove(e)}>
+                <nav className={styles.nav_bar}>
                     {
                         nav?Children.map(children,(item,i)=>{
                             return(
@@ -82,7 +85,7 @@ class FullPage extends Component {
                             )
                         }):null
                     }
-                </ul>
+                </nav>
                 <div className={styles.item_container} style={{top:`-${active*100}%`}}>
                     {
                         Children.map(children, (item, i)=> {
