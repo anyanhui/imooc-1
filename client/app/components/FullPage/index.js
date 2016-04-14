@@ -11,8 +11,16 @@ class FullPage extends Component {
     }
 
     static Item = Item;
-    touchMove(e){
-        console.log(e);
+    touchMove(e,active){
+        e.preventDefault();
+        let time = this.time;
+        let now = new Date().getTime();
+        if ((now - time) < 500) {
+            return;
+        }
+        this.setState({
+            active: active + 1
+        })
     }
     pageScroll(e) {
         let time = this.time;
@@ -72,7 +80,7 @@ class FullPage extends Component {
         return (
             <div className={styles.container} style={{minHeight:minHeight}}
                  onWheel={e=>this.pageScroll(e)}
-                 onTouchStart={e=>this.touchMove(e)}>
+                 onTouchMove={e=>this.touchMove(e,active)}>
                 <nav className={styles.nav_bar}>
                     {
                         nav?Children.map(children,(item,i)=>{
