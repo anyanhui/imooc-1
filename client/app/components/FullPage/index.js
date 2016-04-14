@@ -48,27 +48,6 @@ class FullPage extends Component {
             })
         }
     }
-    minHeightHandler(minHeight){
-        /*let scrollable=this.state.scrollable;
-        if(window.innerHeight<=minHeight&&!scrollable){
-            this.setState({
-                scrollable:true
-            })
-        }else if(window.innerHeight>minHeight&&scrollable){
-            this.setState({
-                scrollable:false
-            })
-        }*/
-    }
-    componentDidMount(){
-       /* let minHeight=this.props.minHeight;
-        if(minHeight){
-            window.addEventListener('resize',()=>{this.minHeightHandler(minHeight)},false)
-        }*/
-    }
-    componentUnMount(){
-        //window.removeEventListener('resize',e=>{this.minHeightHandler(e)},false);
-    }
     render() {
         this.time = new Date().getTime();
         const {

@@ -1,6 +1,22 @@
 var webpack = require('webpack');
 var path = require('path');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var getPxToRemoptions = function () {
+    var propWhiteList = [
+        'width',
+        'margin', 'margin-right', 'margin-left', 'margin-top', 'margin-bottom',
+        'padding', 'padding-right', 'padding-left', 'padding-top', 'padding-bottom',
+        'top', 'left', 'right', 'bottom'
+    ];
+    return {
+        rootValue: 23.5,
+        unitPrecision: 5,
+        propWhiteList: propWhiteList,
+        selectorBlackList: [],
+        replace: true,
+        mediaQuery: true,
+        minPixelValue: 0
+    };
+}
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.HotModuleReplacementPlugin(),
@@ -11,13 +27,13 @@ var plugins = [
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'//development
+        'process.env.NODE_ENV': '"production"'
     })
 ];
 var config = {
     entry: {
         app: [
-            'babel-polyfill',//为了能支持async,await等es7语法
+            'babel-polyfill',
             './client/app'
         ]
     },
@@ -49,17 +65,13 @@ var config = {
     },
     postcss: [
         require('precss')(),
-        //require('cssnext')(),
         require('cssnano')(),
-        //require('postcss-alias')(),
-        require('autoprefixer')({browsers: ['last 2 versions']})
+        require('autoprefixer')({browsers: ['last 2 versions']}),
+        require('postcss-pxtorem')(getPxToRemoptions())
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
     },
-    //externals:{
-    //    'jquery':'jQuery'//CDN
-    //},
     plugins: plugins
 };
 module.exports = config;

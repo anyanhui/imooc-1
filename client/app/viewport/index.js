@@ -7,7 +7,6 @@ class App extends Component {
     render() {
         return (
             <div style={{height:'100%'}}>
-                <Header/>
                 <FullPage minHeight={500} nav={true}>
                     <Item title="首页">
                         <Slider autoPlay={true} height="100%">
