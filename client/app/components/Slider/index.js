@@ -36,15 +36,15 @@ class Slider extends Component{
     stopAutoPlay(){
         clearInterval(this.autoPlayFlag);
     }
-    startAutoPlay(active){
+    startAutoPlay(){
         if(this.props.autoPlay===true){
             this.autoPlayFlag=setInterval(()=>{
-                this.nextClick(active);
+                this.nextClick(this.state.active);
             },5000);
         }
     }
     componentDidMount(){
-        this.startAutoPlay(this.state.active);
+        this.startAutoPlay();
     }
     render(){
         const {
@@ -58,7 +58,7 @@ class Slider extends Component{
         return(
             <div className={styles.container} style={{width:width,height:height}}
                 onMouseOver={()=>this.stopAutoPlay()}
-                onMouseOut={()=>this.startAutoPlay(active)}>
+                onMouseOut={()=>this.startAutoPlay()}>
                 {
                     Children.map(children, (item,i) => {
                         return(
