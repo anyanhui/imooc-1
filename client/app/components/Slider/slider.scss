@@ -27,7 +27,7 @@
     }
     .dot{
       height: 6px;
-      width: 20px;
+      width: 24px;
       float: left;
       margin-right: 8px;
       background: #686868;
@@ -50,36 +50,53 @@
   }
 
   .arrow{
+    display: none;
     position: absolute;
-    width: 40px;
-    height: 100px;
-    display: block;
+    width: 30pt;
+    height: 30pt;
     opacity: 0;
     z-index: 2;
-    filter: alpha(opacity(0));
     top:50%;
     transform: translateY(-50%);
-    background: url("../../../public/img/arrow/arrow.png") no-repeat;
     transition: left .5s,right .5s,opacity .5s;
+    &::after{
+      content: ' ';
+      position: absolute;
+      top:0;
+      left:0;
+      border: 15pt solid transparent;
+    }
   }
   .prev{
-    left: -40px;
-    background-position: 0 -20px;
+    left: -30pt;
+    &::after{
+      border-right-color: #aaa;
+    }
     &:hover{
-      background-position: -40px -20px;
+      &::after{
+        border-right-color: #fff;
+      }
     }
   }
   .next{
-    right: -80px;
-    background-position: 0px -142px;
-    &:hover{
-      background-position: -81px -142px;
+    right: -30pt;
+    &::after{
+      border-left-color: #aaa;
     }
+    &:hover{
+      &::after{
+        border-left-color: #fff;
+      }
+    }
+  }
+  @media only screen and (min-width: 800px){
+    .arrow{
+      display: block;
+     }
   }
   &:hover{
     .arrow{
       opacity: 1;
-      filter: alpha(opacity(100));
     }
     .prev{
       left:0;

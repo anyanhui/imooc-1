@@ -17,7 +17,11 @@ var getPxToRemoptions=function(){
         propWhiteList: propWhiteList,
         selectorBlackList: [],
         replace: true,
-        mediaQuery: true,//在media中的单位是否也进行转换
+        /*
+         在media中的px是否也进行转换:
+         @media only screen and (min-width: 1080px)
+         */
+        mediaQuery: false,
         minPixelValue: 0
     };
 }

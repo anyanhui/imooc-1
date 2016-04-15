@@ -1,56 +1,89 @@
 .container {
   overflow:hidden;
   height: 100%;
-  position: relative;
-  .nav_bar{
-    position: absolute;
+  .nav_header{
     z-index: 1;
     width: 100%;
     height: 80px;
-    display: flex;
     background: #303030;
     opacity: .6;
-    align-items: center;
-    justify-content: center;
-    .nav_item{
-      opacity: 1;
-      width: auto;
+    position: absolute;
+    .nav_bar{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
       height:50%;
-      float: left;
-      padding:0 3px;
-      line-height: 40px;
-      text-align: center;
-      position: relative;
-      color: #fff;
-      font-size: 16px;
-      &::after{
-        content: ' ';
-        position: absolute;
-        background: #40a070;
-        height: 3px;
-        width: 100%;
-        top: 3px;
-        left:50%;
-        transform: translateX(-50%) scaleX(0);
-        transition: transform .3s;
+      .nav_item{
+        opacity: 1;
+        width: auto;
+        height:100%;
+        float: left;
+        padding:0 3px;
+        line-height: 40px;
+        text-align: center;
+        position: relative;
+        color: #fff;
+        font-size: 16px;
+        &::after{
+          content: ' ';
+          position: absolute;
+          background: #40a070;
+          height: 3px;
+          width: 100%;
+          top: 3px;
+          left:50%;
+          transform: translateX(-50%) scaleX(0);
+          transition: transform .3s;
+        }
+        &:hover{
+          cursor: pointer;
+          &::after{
+            transform: translateX(-50%) scaleX(1);
+          }
+        }
       }
-      &:hover{
-        cursor: pointer;
+      .nav_active{
+        color: #40a070;
         &::after{
           transform: translateX(-50%) scaleX(1);
         }
       }
     }
-    .nav_active{
-      color: #40a070;
-      &::after{
-        transform: translateX(-50%) scaleX(1);
+    @media screen and (max-width:500px) {
+      .nav_bar {
+        display: none;
       }
     }
   }
-  @media only screen and (max-width: 500px){
-    .nav_bar{
-      display: none;
+  .icon_menu{
+    display: none;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    &:hover{
+      cursor: pointer;
+      &::before{
+        color: #0b97c4;
+      }
+    }
+    &::before{
+      content: '\e901';
+      color: #6699cc;
+    }
+    .sideMenu{
+      position: absolute;
+      .sideMenu_item{
+
+      }
+      .sideMenu_active{
+
+      }
+    }
+  }
+  @media screen and (max-width:500px) {
+    .icon_menu {
+      display: block;
     }
   }
   .item_container {

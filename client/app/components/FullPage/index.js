@@ -60,17 +60,37 @@ class FullPage extends Component {
             <div className={styles.container} style={{minHeight:minHeight}}
                  onWheel={e=>this.pageScroll(e)}
                  onTouchMove={e=>this.touchMove(e,active)}>
-                <nav className={styles.nav_bar}>
-                    {
-                        nav?Children.map(children,(item,i)=>{
-                            return(
-                                <li className={cls({
+                <nav className={styles.nav_header}>
+                    <ul className={styles.nav_bar}>
+                        {
+                            nav?Children.map(children,(item,i)=>{
+                                return(
+                                    <li className={cls({
                                     [styles.nav_item]:true,
                                     [styles.nav_active]:i===active
                                 })}
-                                onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
-                            )
-                        }):null
+                                        onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
+                                )
+                            }):null
+                        }
+                    </ul>
+                    {
+                        nav?(
+                            <span className={styles.icon_menu} style={{right:'50px'}}>
+                                <ul className={styles.sideMenu}>
+                                    {
+                                        Children.map(children,(item,i)=>{
+                                            return(
+                                                <li className={cls({
+                                                    [styles.sideMenu_item]:true,
+                                                    [styles.sideMenu_active]:i===active
+                                                })} onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </span>
+                        ):null
                     }
                 </nav>
                 <div className={styles.item_container} style={{top:`-${active*100}%`}}>
