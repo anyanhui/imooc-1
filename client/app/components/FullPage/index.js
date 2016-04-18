@@ -2,6 +2,7 @@ import React,{PropTypes,Component,Children} from 'react';
 import Item from './Item';
 import styles from './fullPage.scss';
 import cls from 'classnames';
+import Hammer from 'react-hammerjs';
 class FullPage extends Component {
     constructor(props) {
         super(props);
@@ -11,16 +12,24 @@ class FullPage extends Component {
     }
 
     static Item = Item;
-    touchMove(e,active){
+
+    swipeHandler(e, active) {
+        console.log(e);
         e.preventDefault();
-        let time = this.time;
-        let now = new Date().getTime();
-        if ((now - time) < 500) {
-            return;
+        let {deltaX:x,deltaY:y}=e;
+        let count = Children.count(this.props.children);
+        if (Math.abs(x) < Math.abs(y)) {
+            if (y < 0 && active < count - 1) {
+                //向上滑动
+                this.setState({
+                    active: active + 1
+                })
+            } else if (y > 0 && active > 0) {
+                this.setState({
+                    active: active - 1
+                })
+            }
         }
-        this.setState({
-            active: active + 1
-        })
     }
     pageScroll(e) {
         let time = this.time;
@@ -57,55 +66,64 @@ class FullPage extends Component {
             }=this.props;
         const active = this.state.active;
         return (
-            <div className={styles.container} style={{minHeight:minHeight}}
-                 onWheel={e=>this.pageScroll(e)}
-                 onTouchMove={e=>this.touchMove(e,active)}>
-                <nav className={styles.nav_header}>
-                    <ul className={styles.nav_bar}>
-                        {
-                            nav?Children.map(children,(item,i)=>{
-                                return(
-                                    <li className={cls({
-                                    [styles.nav_item]:true,
-                                    [styles.nav_active]:i===active
-                                })}
-                                        onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
-                                )
-                            }):null
+            <Hammer onSwipe={(e)=>this.swipeHandler(e,active)} vertical={true}
+                    options={{
+                    recognizers: {
+                        swipe: {
+
                         }
-                    </ul>
-                    {
-                        nav?(
-                            <span className={styles.icon_menu} style={{right:'50px'}}>
-                                <ul className={styles.sideMenu}>
-                                    {
-                                        Children.map(children,(item,i)=>{
-                                            return(
-                                                <li className={cls({
-                                                    [styles.sideMenu_item]:true,
-                                                    [styles.sideMenu_active]:i===active
-                                                })} onClick={()=>this.navClick(active,i)}>{item.props.title||`标题${i}`}</li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            </span>
-                        ):null
                     }
-                </nav>
-                <div className={styles.item_container} style={{top:`-${active*100}%`}}>
-                    {
-                        Children.map(children, (item, i)=> {
-                            return (
-                                <div className={cls({
-                                [styles.item]:true,
-                                [styles.item_active]:i===active
-                            })}>{item}</div>
-                            )
-                        })
-                    }
+                }}>
+                <div className={styles.container} style={{minHeight:minHeight}}
+                     onWheel={e=>this.pageScroll(e)}>
+                    <nav className={styles.nav_header}>
+                        <ul className={styles.nav_bar}>
+                            {
+                                nav ? Children.map(children, (item, i)=> {
+                                    return (
+                                        <li className={cls({
+                                        [styles.nav_item]:true,
+                                        [styles.nav_active]:i===active
+                                    })}
+                                            onClick={()=>this.navClick(active,i)}>{item.props.title || `标题${i}`}</li>
+                                    )
+                                }) : null
+                            }
+                        </ul>
+                        {
+                            nav ? (
+                                <span className={styles.icon_menu} style={{right:'50px'}}>
+                                    <ul className={styles.sideMenu}>
+                                        {
+                                            Children.map(children, (item, i)=> {
+                                                return (
+                                                    <li className={cls({
+                                                        [styles.sideMenu_item]:true,
+                                                        [styles.sideMenu_active]:i===active
+                                                    })}
+                                                        onClick={()=>this.navClick(active,i)}>{item.props.title || `标题${i}`}</li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </span>
+                            ) : null
+                        }
+                    </nav>
+                    <div className={styles.item_container} style={{top:`-${active*100}%`}}>
+                        {
+                            Children.map(children, (item, i)=> {
+                                return (
+                                    <div className={cls({
+                                    [styles.item]:true,
+                                    [styles.item_active]:i===active
+                                })}>{item}</div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-            </div>
+            </Hammer>
         )
     }
 }
