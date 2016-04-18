@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "antd": "^0.12.14",
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.6",
     "babel-loader": "^6.2.4",
