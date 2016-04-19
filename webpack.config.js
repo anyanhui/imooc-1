@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+//var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var getPxToRemoptions=function(){
     var propWhiteList=[
         'width',
@@ -35,6 +36,8 @@ var plugins = [
             warnings: false
         }
     }),
+    //单独打包css文件，然后以link形式引入,可以加第二个参数{allChunks: true}表示合并多个css文件
+    //new ExtractTextPlugin("antd/lib/index.css"),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
@@ -47,8 +50,8 @@ var config = {
             //'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/app'
-        ]
-        //example: ['babel-polyfill', './client/example']
+        ],
+        gl: ['babel-polyfill', './client/app/gl']
     },
     output: {
         path: path.resolve(__dirname, 'client/public/dist'),
@@ -73,12 +76,11 @@ var config = {
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         }, {
             test: /\.css$/,
-            exclude: /node_modules/,
-            loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
+            //exclude: /node_modules/,
+            loader: "style!css!postcss"
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
             loader: 'url?limit=10000'
-            //loader: 'url?limit=10000&mimetype=image/svg+xml'
         }, {
             test: /\.(woff|woff2)$/,
             loader: 'url?limit=100000'

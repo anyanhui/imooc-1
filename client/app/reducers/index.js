@@ -1,3 +1,5 @@
-/**
- * Created by chaozhang on 4/1/2016.
- */
+import {combineReducers} from 'redux';
+import gridReduce from './gridReduce';
+export const rootReducer=combineReducers({
+   grid:gridReduce
+});

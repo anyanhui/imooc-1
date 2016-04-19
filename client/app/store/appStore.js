@@ -1,3 +1,9 @@
-/**
- * Created by chaozhang on 4/1/2016.
- */
+import {createStore,applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import {rootReducer} from '../reducers';
+const initialState = {};
+export const store=createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(thunkMiddleware)
+);

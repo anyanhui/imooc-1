@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {
     FullPage,Header,Slider
-} from '../components';
+} from '../components/app_bundle';
 const Item = FullPage.Item;
 class App extends Component {
     render() {
