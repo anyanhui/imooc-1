@@ -1,6 +1,16 @@
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
 .header{
   height: 80px;
   z-index: 999;
+  @include font-dpr(16px);
   position: fixed;
   width: 100%;
   display: flex;
