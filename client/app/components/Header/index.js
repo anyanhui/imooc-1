@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import styles from './header.scss';
+import {Link} from 'react-router';
 class Header extends Component{
     render(){
         return(
@@ -7,16 +8,13 @@ class Header extends Component{
                 <nav>
                     <ul className={styles.ul}>
                         <li className={styles.li}>
-                            <a href="javascript:;"></a>
+                            <Link to="/">主页</Link>
                         </li>
                         <li className={styles.li}>
-                            <a href="javascript:;"></a>
+                            <Link to="/learn">课程</Link>
                         </li>
                         <li className={styles.li}>
-                            <a href="javascript:;"></a>
-                        </li>
-                        <li className={styles.li}>
-                            <a href="javascript:;"></a>
+                            <Link to="/ask">问答</Link>
                         </li>
                     </ul>
                 </nav>
