@@ -1,4 +1,1 @@
-/*
-gl
- */
-export {default as GridPanel} from './GridPanel';
+export {default as Header} from './Header';

@@ -35,10 +35,11 @@ var config = {
         app: [
             'babel-polyfill',
             './client/app'
-        ]
+        ],
+        gl: ['babel-polyfill', './client/app/gl']
     },
     output: {
-        path: path.resolve(__dirname, 'client/public/dist'),
+        path: path.join(__dirname, 'client/public/dist'),
         publicPath: './client/public/',
         filename: '[name].min.js'
     },
@@ -53,8 +54,7 @@ var config = {
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         }, {
             test: /\.css$/,
-            exclude: /node_modules/,
-            loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
+            loader: "style!css!postcss"
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
             loader: 'url?limit=10000'
@@ -67,7 +67,7 @@ var config = {
         require('precss')(),
         require('cssnano')(),
         require('autoprefixer')({browsers: ['last 2 versions']}),
-        require('postcss-pxtorem')(getPxToRemoptions())
+        //require('postcss-pxtorem')(getPxToRemoptions())
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']

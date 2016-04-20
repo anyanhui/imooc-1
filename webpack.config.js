@@ -37,7 +37,7 @@ var plugins = [
         }
     }),
     //单独打包css文件，然后以link形式引入,可以加第二个参数{allChunks: true}表示合并多个css文件
-    //new ExtractTextPlugin("antd/lib/index.css"),
+    //new ExtractTextPlugin("index.css"),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
@@ -54,7 +54,7 @@ var config = {
         gl: ['babel-polyfill', './client/app/gl']
     },
     output: {
-        path: path.resolve(__dirname, 'client/public/dist'),
+        path: path.join(__dirname, 'client/public/dist'),
         publicPath: 'http://localhost:3000/client/public/',
         filename: '[name].min.js'
     },
@@ -63,13 +63,7 @@ var config = {
         loaders: [{
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            //exclude: nodeModulesPath,
             loader: 'babel'
-            //loader: 'react-hot!babel'
-            //query: {
-            //    presets: ['react', 'es2015']
-            //    // plugins: ['transform-runtime']
-            //}
         }, {
             test: /\.scss/,
             exclude: /node_modules/,
@@ -95,7 +89,7 @@ var config = {
         //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
         require('autoprefixer')({browsers: ['last 2 versions']}),
         //移动端web一般才会需要这个
-        require('postcss-pxtorem')(getPxToRemoptions())
+        //require('postcss-pxtorem')(getPxToRemoptions())
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']

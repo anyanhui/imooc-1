@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import {
-    GridPanel
+    Header
 } from '../components/gl_bundle';
 class App extends Component{
     render(){
         return(
-            <GridPanel/>
+            <div>
+                <Header/>
+            </div>
         )
     }
 }

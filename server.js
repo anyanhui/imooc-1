@@ -7,12 +7,12 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'client/public')));
 app.get('/', (req, res)=> {
     res.render('app.ejs', {
-        title: 'nodeJs'
+        title: 'react-mobile'
     });
 });
 app.get('/gl',(req,res)=>{
     res.render('gl.ejs', {
-        title: 'ant'
+        title: 'react-pc'
     });
 });
 app.listen(port);
