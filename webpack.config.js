@@ -50,8 +50,7 @@ var config = {
             'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/app'
-        ],
-        gl: ['babel-polyfill', './client/app/gl']
+        ]
     },
     output: {
         path: path.join(__dirname, 'dist'),

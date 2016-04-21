@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-//import App from './viewport/appViewport';
+import routes from './routes';
+import {Router,browserHistory} from 'react-router';
 render(
-    <App/>,
+    <Router history={browserHistory} routes={routes}/>,
     document.body
 );

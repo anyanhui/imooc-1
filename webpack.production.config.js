@@ -35,8 +35,7 @@ var config = {
         app: [
             'babel-polyfill',
             './client/app'
-        ],
-        gl: ['babel-polyfill', './client/app/gl']
+        ]
     },
     output: {
         path: path.join(__dirname, '/dist'),
