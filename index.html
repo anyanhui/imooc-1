@@ -2,19 +2,48 @@
 <html>
 
 <head>
-    <title><%= title %></title>
+    <title>app</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,user-scalable=no,
-        minimum-scale=1.0,maximum-scale=1.0,initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+    <meta content=”yes” name=”apple-mobile-web-app-capable”/>
+    <!--iphone的私有标签，它指定的iphone中safari顶端的状态条(时间，信号等)的样式:黑色-->
+    <meta content=”black” name=”apple-mobile-web-app-status-bar-style”/>
+    <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta content=”telephone=no” name=”format-detection”/>
+    <!--iphone的私有标签，它指定你保存某个页面到桌面的时候使用这张图作为桌面图标,尺寸和iphone上的一致，是57*57px-->
+    <link rel="apple-touch-icon" href="custom_icon.png">
     <meta name="description" content="">
-    <meta name="keywords" content="node">
-    <link rel="stylesheet" href="client/public/css/pc_base.css">
+    <meta name="keywords" content="mobile">
+    <link rel="stylesheet" href="client/public/css/mobile_base.css">
+    <script type="text/javascript">
+        (function(){
+            var dpr, htmlSize, scale;
+            var docEl = window.document.documentElement;
+            var fontEl = document.createElement('style');
+            var metaEl = document.querySelector('meta[name="viewport"]');
+            dpr = window.devicePixelRatio || 1;
+            scale = 1 / dpr;
+            htmlSize = docEl.clientWidth * dpr / 10;
+            // 设置viewport，进行缩放，达到高清效果
+            metaEl.setAttribute('content','width='+dpr * docEl.clientWidth+
+                    ',user-scalable=no,minimum-scale='+scale+
+                    ',maximum-scale='+scale+',initial-scale='+scale);
+            // 设置data-dpr属性，留作的css hack之用
+            docEl.setAttribute('data-dpr', dpr);
+            // 动态写入样式
+            docEl.firstElementChild.appendChild(fontEl);
+            fontEl.innerHTML = 'html{font-size:' + htmlSize + 'px!important;}';
+            //window.dpr = dpr;
+            //window.rem = rem;
+        }())
+    </script>
 </head>
 
-<body>
-<script type="text/javascript" src="./client/public/dist/common.js"></script>
-<script type="text/javascript" src="./client/public/dist/app.min.js"></script>
+<body ontouchmove="event.preventDefault()">
+<script type="text/javascript" src="dist/common.js"></script>
+<script type="text/javascript" src="dist/app.min.js"></script>
 </body>
 
 </html>

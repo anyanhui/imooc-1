@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var getPxToRemoptions = function () {
+var getPxToRemoptions = function (rootValue) {
     var propWhiteList = [
         'width',
         'margin', 'margin-right', 'margin-left', 'margin-top', 'margin-bottom',
@@ -8,7 +8,7 @@ var getPxToRemoptions = function () {
         'top', 'left', 'right', 'bottom'
     ];
     return {
-        rootValue: 23.5,
+        rootValue: rootValue,
         unitPrecision: 5,
         propWhiteList: propWhiteList,
         selectorBlackList: [],
@@ -39,8 +39,8 @@ var config = {
         gl: ['babel-polyfill', './client/app/gl']
     },
     output: {
-        path: path.join(__dirname, 'client/public/dist'),
-        publicPath: './client/public/',
+        path: path.join(__dirname, '/dist'),
+        publicPath: './dist',
         filename: '[name].min.js'
     },
     module: {
@@ -64,10 +64,9 @@ var config = {
         }]
     },
     postcss: [
-        require('precss')(),
         require('cssnano')(),
         require('autoprefixer')({browsers: ['last 2 versions']}),
-        //require('postcss-pxtorem')(getPxToRemoptions())
+        //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']

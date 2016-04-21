@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 //var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var getPxToRemoptions=function(){
+var getPxToRemoptions=function(rootValue){
     var propWhiteList=[
         'width',
         'margin','margin-right','margin-left','margin-top','margin-bottom',
@@ -13,7 +13,7 @@ var getPxToRemoptions=function(){
          rootValue,取决于设计稿是按照什么设备的尺寸来设计的，
          那这就是对应于为该尺寸媒体查询@media的那个html font-size值
          */
-        rootValue: 23.5,
+        rootValue: rootValue,
         unitPrecision: 5,//保留几位小数点
         propWhiteList: propWhiteList,
         selectorBlackList: [],
@@ -40,25 +40,25 @@ var plugins = [
     //new ExtractTextPlugin("index.css"),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
+        'process.env.NODE_ENV': '"development"'
     })
 ];
 var config = {
     entry: {
         app: [
-            //'webpack-dev-server/client?http://localhost:3000',
-            //'webpack/hot/only-dev-server',
+            'webpack-dev-server/client?http://localhost:3000',
+            'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/app'
         ],
         gl: ['babel-polyfill', './client/app/gl']
     },
     output: {
-        path: path.join(__dirname, 'client/public/dist'),
-        publicPath: 'http://localhost:3000/client/public/',
+        path: path.join(__dirname, 'dist'),
+        publicPath: 'http://localhost:3000/dist',
         filename: '[name].min.js'
     },
-    watch:true,
+    //watch:true,
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -83,13 +83,15 @@ var config = {
     //postCss插件
     postcss: [
         //可以像sass那样写postcss
-        require('precss')(),
+        //require('precss')(),
         //require('cssnext')(),//试用未来的css语法
         require('cssnano')(),//优化和压缩css代码
         //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
         require('autoprefixer')({browsers: ['last 2 versions']}),
-        //移动端web一般才会需要这个
-        //require('postcss-pxtorem')(getPxToRemoptions())
+        /*
+        移动端web一般才会用到下面这个
+         */
+        require('postcss-pxtorem')(getPxToRemoptions(75))//75是iphone6的尺寸/10
     ],
     resolve: {
         extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
@@ -99,15 +101,15 @@ var config = {
         //    'immutable':path.resolve(nodeModulesPath,'immutable/dist/immutable.js')
         //}
     },
-    //devServer: {
-    //    historyApiFallback: true,
-    //    contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
-    //    noInfo: true, //  --no-info option
-    //    hot: true,        //自动刷新
-    //    inline: true,
-    //    port: 3000,
-    //    progress: true
-    //},
+    devServer: {
+        historyApiFallback: true,
+        contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+        noInfo: true, //  --no-info option
+        hot: true,        //自动刷新
+        inline: true,
+        port: 3000,
+        progress: true
+    },
     //externals:{
     //    'jquery':'jQuery'//CDN
     //},

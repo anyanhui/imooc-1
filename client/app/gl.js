@@ -1,8 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import App from './viewport/glViewport';
-import {Router,Route,IndexRoute} from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import {Router,Route,IndexRoute,browserHistory} from 'react-router';
 const Home = React.createClass({
     render(){
         return (
@@ -25,7 +24,7 @@ const Learn = React.createClass({
     }
 })
 render(
-    <Router>
+    <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={Home}/>
             <Route path="ask" component={Ask}/>
