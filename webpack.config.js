@@ -28,8 +28,12 @@ var getPxToRemoptions=function(rootValue){
 }
 //var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var plugins = [
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    //new webpack.optimize.CommonsChunkPlugin('common.js'),
     //new CommonsChunkPlugin("admin-commons.js", ["ap1", "ap2"])
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: Infinity
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -50,11 +54,17 @@ var config = {
             'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/app'
+        ],
+        vendor: [
+            'react',
+            'react-dom',
+            'react-router'
         ]
     },
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: 'http://localhost:3000/dist',
+        chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
     //watch:true,
