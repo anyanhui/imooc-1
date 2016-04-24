@@ -18,7 +18,10 @@ var getPxToRemoptions = function (rootValue) {
     };
 }
 var plugins = [
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: Infinity
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -35,11 +38,18 @@ var config = {
         app: [
             'babel-polyfill',
             './client/app'
+        ],
+        vendor: [
+            'react',
+            'react-dom',
+            'react-router',
+            'redux'
         ]
     },
     output: {
         path: path.join(__dirname, '/dist'),
         publicPath: './dist',
+        chunkFilename: '[id].chunk.js',
         filename: '[name].min.js'
     },
     module: {

@@ -58,13 +58,14 @@ var config = {
         vendor: [
             'react',
             'react-dom',
-            'react-router'
+            'react-router',
+            'redux'
         ]
     },
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: 'http://localhost:3000/dist',
-        chunkFilename: '[name].chunk.js',
+        chunkFilename: '[id].chunk.js',
         filename: '[name].min.js'
     },
     //watch:true,
@@ -120,9 +121,8 @@ var config = {
         progress: true
     },
     //externals:{
-    //    'jquery':'jQuery'//CDN
+    //    'react':'React'//CDN
     //},
-    //devtool: 'eval-source-map',
     devtool: 'source-map',
     plugins: plugins
 };
