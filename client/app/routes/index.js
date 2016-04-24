@@ -9,11 +9,19 @@ export default {
     childRoutes: [
         {
             path: 'ask',
-            component:require('./Ask')
+            getComponents(nextState, cb) {
+                require.ensure([], require=> {
+                    cb(null, require('./Ask')['default'])
+                })
+            }
         },
         {
             path: 'learn',
-            component:require('./Learn')
+            getComponents(nextState, cb) {
+                require.ensure([], require=> {
+                    cb(null, require('./Learn')['default'])
+                })
+            }
         }
     ]
 }

@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-//import {RouteAsk} from '../components/fit/ask';
-const Ask = React.createClass({
+import {RouteAsk} from '../components/fit/ask';
+class Ask extends Component {
     render(){
         return (
-            <div>Ask</div>
+            <RouteAsk/>
         )
     }
-})
+}
 export default Ask;
