@@ -77,8 +77,19 @@ var config = {
         require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
+    babel:{
+        presets: [
+            "es2015",
+            "stage-0",
+            "react"
+        ],
+        plugins: [
+            "transform-decorators-legacy",
+            "transform-es2015-modules-commonjs"
+        ]
+    },
     resolve: {
-        extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
+        extensions: ['', '.js', '.scss', '.css', '.jsx']
     },
     plugins: plugins
 };

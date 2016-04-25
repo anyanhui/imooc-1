@@ -101,10 +101,22 @@ var config = {
         /*
         移动端web一般才会用到下面这个
          */
-        require('postcss-pxtorem')(getPxToRemoptions(75))//75是iphone6的尺寸/10
+        require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
     ],
+    //babel插件
+    babel:{
+        presets: [
+            "es2015",
+            "stage-0",
+            "react"
+        ],
+        plugins: [
+            "transform-decorators-legacy",
+            "transform-es2015-modules-commonjs"
+        ]
+    },
     resolve: {
-        extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
+        extensions: ['', '.js', '.scss', '.css', '.jsx']
         //alias: {
         //    'react':path.resolve(nodeModulesPath,'react/dist/react.js'),
         //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.js'),

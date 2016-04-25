@@ -14,10 +14,11 @@ a {
 li {
     list-style: none;
 }
+
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?6l89xu');
-    src:    url('../fonts/icomoon.eot?6l89xu#iefix') format('embedded-opentype'),
+    src: url('../fonts/icomoon.eot?6l89xu');
+    src: url('../fonts/icomoon.eot?6l89xu#iefix') format('embedded-opentype'),
     url('../fonts/icomoon.ttf?6l89xu') format('truetype'),
     url('../fonts/icomoon.woff?6l89xu') format('woff'),
     url('../fonts/icomoon.svg?6l89xu#icomoon') format('svg');
@@ -34,6 +35,7 @@ li {
     text-transform: none;
     line-height: 1;
 }
+
 html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -44,7 +46,9 @@ html {
 }
 
 body {
-    height:100%;
+    -webkit-user-select: none;
+    user-select: none;
+    height: 100%;
     -webkit-font-smoothing: antialiased;
     /*-moz-osx-font-smoothing: grayscale;*/
     /*background: url("../img/body_bg.png") no-repeat fixed 0 0/100% 100%;*/
@@ -56,38 +60,44 @@ body {
     box-sizing: inherit;
 }
 
-/*@media screen and (min-width:480px) and (max-width:639px) {*/
-/*html {*/
-/*font-size: 15px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:640px) and (max-width:719px) {*/
-/*html {*/
-/*font-size: 20px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:720px) and (max-width:749px) {*/
-/*html {*/
-/*font-size: 22.5px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:750px) and (max-width:799px) {*/
-/*html {*/
-/*font-size: 23.5px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:800px) and (max-width:959px) {*/
-/*html {*/
-/*font-size: 25px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:960px) and (max-width:1079px) {*/
-/*html {*/
-/*font-size: 30px*/
-/*}*/
-/*}*/
-/*@media screen and (min-width:1080px) {*/
-/*html {*/
-/*font-size: 32px*/
-/*}*/
-/*}*/
+@media screen and (min-width: 480px) and (max-width: 639px) {
+    html {
+        font-size: 15px
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 719px) {
+    html {
+        font-size: 20px
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 749px) {
+    html {
+        font-size: 22.5px
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 799px) {
+    html {
+        font-size: 23.5px
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 959px) {
+    html {
+        font-size: 25px
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1079px) {
+    html {
+        font-size: 30px
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    html {
+        font-size: 32px
+    }
+}
