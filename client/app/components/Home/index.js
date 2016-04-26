@@ -15,7 +15,9 @@ class Home extends Component {
     }
     render() {
         return (
-           <div>{this.state.title}</div>
+           <div className={styles.container}>
+
+           </div>
         )
     }
 }

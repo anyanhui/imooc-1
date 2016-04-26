@@ -3,7 +3,9 @@ import styles from './ask.scss';
 class Ask extends Component {
     render() {
         return (
-            <div className={styles.ask}>Ask</div>
+            <div className={styles.container}>
+
+            </div>
         )
     }
 }

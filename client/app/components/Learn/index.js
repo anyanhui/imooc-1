@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
+import styles from './learn.scss';
 class Learn extends Component {
     render() {
         return (
-            <div>Learn</div>
+            <div className={styles.container}></div>
         )
     }
 }
