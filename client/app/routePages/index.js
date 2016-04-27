@@ -14,12 +14,18 @@ export default {
                     cb(null, require('./Ask')['default'])
                 })
             }
-        },
-        {
+        }, {
             path: 'learn',
             getComponents(nextState, cb) {
                 require.ensure([], require=> {
                     cb(null, require('./Learn')['default'])
+                })
+            }
+        },{
+            path:'prize',
+            getComponents(nextState,cb){
+                require.ensure([], require=> {
+                    cb(null, require('./Prize')['default'])
                 })
             }
         }
