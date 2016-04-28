@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+﻿var webpack = require('webpack');
 var path = require('path');
 //var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var getPxToRemoptions=function(rootValue){
@@ -65,7 +65,7 @@ var config = {
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: 'http://localhost:3000/dist',
-        chunkFilename: '[id].chunk.js',
+        chunkFilename: '[id].[chunkhash:5].chunk.js',
         filename: '[name].min.js'
     },
     //watch:true,
