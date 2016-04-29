@@ -41,15 +41,13 @@ var config = {
         ],
         vendor: [
             'react',
-            'react-dom',
-            'react-router',
-            'redux'
+            'react-dom'
         ]
     },
     output: {
         path: path.join(__dirname, '/dist'),
         publicPath: './dist',
-        chunkFilename: '[id].chunk.js',
+        chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
     module: {

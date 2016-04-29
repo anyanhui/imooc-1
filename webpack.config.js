@@ -57,15 +57,13 @@ var config = {
         ],
         vendor: [
             'react',
-            'react-dom',
-            'react-router',
-            'redux'
+            'react-dom'
         ]
     },
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: 'http://localhost:3000/dist',
-        chunkFilename: '[id].[chunkhash:5].chunk.js',
+        chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
     //watch:true,
@@ -101,7 +99,7 @@ var config = {
         /*
         移动端web一般才会用到下面这个
          */
-        require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
+        //require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
     ],
     //babel插件
     babel:{

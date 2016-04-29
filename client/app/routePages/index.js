@@ -12,21 +12,21 @@ export default {
             getComponents(nextState, cb) {
                 require.ensure([], require=> {
                     cb(null, require('./Ask')['default'])
-                })
+                },'ask')
             }
         }, {
             path: 'learn',
             getComponents(nextState, cb) {
                 require.ensure([], require=> {
                     cb(null, require('./Learn')['default'])
-                })
+                },'learn')
             }
         },{
             path:'prize',
             getComponents(nextState,cb){
                 require.ensure([], require=> {
                     cb(null, require('./Prize')['default'])
-                })
+                },'prize')
             }
         }
     ]
