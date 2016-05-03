@@ -3,9 +3,9 @@ import Card from '../../Util/Card';
 class Cqzl extends Component{
     render(){
         return(
-            <Card
-                title="鸟瞰图"
-            />
+            <Card title="鸟瞰图">
+
+            </Card>
         )
     }
 }

@@ -1,3 +1,15 @@
-.container{
+.home{
   height:calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  .ceil{
+    margin: 20px 0;
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+  }
+  .floor{
+    @extend .ceil;
+  }
 }

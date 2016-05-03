@@ -1,0 +1,29 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 0 20px #000;
+  //background: -webkit-linear-gradient(left,#000000,#fff);
+  header{
+    flex:0 0 40px;
+    border-bottom: 1px solid #858585;
+    position: relative;
+    h3{
+      height: 100%;
+      text-align: center;
+      line-height: 40px;
+    }
+    span{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      right: -14px;
+      top: -14px;
+      background: #0b97c4;
+    }
+  }
+  .main{
+    flex:1;
+  }
+}

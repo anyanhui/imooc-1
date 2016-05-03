@@ -19,7 +19,8 @@ class Header extends Component{
         });
         return(
             <header className={styles.header}>
-                <nav>
+                <Link className={styles.icon_home} to='/'></Link>
+                <nav className={styles.nav}>
                     <ul>
                         {nav}
                     </ul>
