@@ -4,13 +4,6 @@ import {Link,IndexLink} from 'react-router';
 class Header extends Component{
     render(){
         const nav=this.props.navList.map((item,i)=>{
-            if(item.path==='/'){
-                return(
-                    <li key={i}>
-                        <IndexLink activeClassName={styles.active} to="/">{item.name}</IndexLink>
-                    </li>
-                )
-            }
            return(
                <li key={i}>
                    <Link activeClassName={styles.active} to={item.path}>{item.name}</Link>
@@ -19,12 +12,13 @@ class Header extends Component{
         });
         return(
             <header className={styles.header}>
-                <Link className={styles.icon_home} to='/'></Link>
+                <IndexLink className={styles.icon_home} to='/'></IndexLink>
                 <nav className={styles.nav}>
                     <ul>
                         {nav}
                     </ul>
                 </nav>
+                <a className={styles.icon_github} href="https://github.com/zhangchao828/imooc" target="_blank"></a>
             </header>
         )
     }

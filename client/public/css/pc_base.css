@@ -16,11 +16,11 @@ li {
 }
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?6l89xu');
-    src:    url('../fonts/icomoon.eot?6l89xu#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?6l89xu') format('truetype'),
-    url('../fonts/icomoon.woff?6l89xu') format('woff'),
-    url('../fonts/icomoon.svg?6l89xu#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?oo0d0h');
+    src:    url('../fonts/icomoon.eot?oo0d0h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?oo0d0h') format('truetype'),
+    url('../fonts/icomoon.woff?oo0d0h') format('woff'),
+    url('../fonts/icomoon.svg?oo0d0h#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }

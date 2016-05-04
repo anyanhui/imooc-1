@@ -1,15 +1,28 @@
-.home{
-  height:calc(100% - 60px);
-  display: flex;
-  flex-direction: column;
-  padding: 0 30px;
-  .ceil{
-    margin: 20px 0;
-    flex:1;
-    display: flex;
-    justify-content: space-around;
+.header{
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background: #bf616a;
+  box-shadow: 0 10px 20px #000;
+  h2{
+    height:100%;
+    line-height: 50px;
+    text-align: center;
   }
-  .floor{
-    @extend .ceil;
+}
+.container {
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  background: #f5f5f5;
+  box-shadow: 0 0 20px #000;
+  padding: 20px;
+  .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .card{
+      padding-bottom: 20px;
+    }
   }
 }

@@ -62,7 +62,7 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: 'http://localhost:3000/dist',
+        publicPath: 'http://localhost:3000/dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },

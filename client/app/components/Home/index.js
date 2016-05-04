@@ -2,39 +2,41 @@ import React,{PropTypes,Component} from 'react';
 import styles from './home.scss';
 import Card from '../Util/Card';
 class Home extends Component {
-    static contextTypes={
-        router:PropTypes.object.isRequired
-    };
-    handlerClick(){
-        const router=this.context.router;
-        //router.push('learn');
-        //router.go(1)
-    }
     render() {
+        const list=[{
+            title:'ReactJs'
+        },{
+            title:'VueJs'
+        },{
+            title:'AngularJs'
+        },{
+            title:'webpack'
+        },{
+            title:'flex布局'
+        },{
+            title:'Redux管理数据流'
+        },{
+            title:'ES6'
+        }];
+        const items=list.map((item,i)=>{
+            return(
+                <div key={i} className={styles.card}>
+                    <Card title={item.title} href={item.href}>
+
+                    </Card>
+                </div>
+            )
+        })
         return (
-           <div className={styles.home}>
-               <div className={styles.ceil}>
-                   <Card title="鸟瞰图">
-
-                   </Card>
-                   <Card title="视频监控">
-
-                   </Card>
-                   <Card title="工艺流程">
-
-                   </Card>
-               </div>
-               <div className={styles.floor}>
-                   <Card title="指标项">
-
-                   </Card>
-                   <Card title="历史曲线">
-
-                   </Card>
-                   <Card title="返回地图">
-
-                   </Card>
-               </div>
+           <div>
+               <header className={styles.header}>
+                   <h2>资源</h2>
+               </header>
+              <div className={styles.container}>
+                  <div className={styles.wrap}>
+                      {items}
+                  </div>
+              </div>
            </div>
         )
     }

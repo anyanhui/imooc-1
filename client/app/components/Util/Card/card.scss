@@ -1,9 +1,10 @@
 .container{
   display: flex;
   flex-direction: column;
-  padding: 4px;
+  width:300px;
+  height: 250px;
   background: #fff;
-  box-shadow: 0 0 20px #000;
+  box-shadow: 0 10px 20px #333;
   //background: -webkit-linear-gradient(left,#000000,#fff);
   header{
     flex:0 0 40px;
@@ -13,14 +14,6 @@
       height: 100%;
       text-align: center;
       line-height: 40px;
-    }
-    span{
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      right: -14px;
-      top: -14px;
-      background: #0b97c4;
     }
   }
   .main{

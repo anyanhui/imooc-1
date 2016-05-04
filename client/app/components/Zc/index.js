@@ -1,8 +1,9 @@
 import React,{PropTypes,Component} from 'react';
-import {RoutePrize} from '../components/fit/prize';
+import styles from './zc.scss';
+import SideBar from '../Util/SideBar';
 import {withRouter} from 'react-router';
 @withRouter
-class Prize extends Component {
+class Zc extends Component{
     //static contextTypes={
     //    /*
     //    要想在当前组件类访问context中的属性必须像这样
@@ -29,11 +30,20 @@ class Prize extends Component {
         console.log(nextLocation);
         return true;
     }
-
-    render() {
-        return (
-            <RoutePrize/>
+    render(){
+        let sideBarList=[
+            {name:'button 按钮',path:'/Button'},
+            {name:'panel 面板',path:'Panel'},
+            {name:'grid 表格',path:'Grid'}
+        ];
+        return(
+            <div className={styles.container}>
+                <SideBar list={sideBarList}/>
+                <div className={styles.main}>
+                    {this.props.children}
+                </div>
+            </div>
         )
     }
 }
-export default Prize;
+export default Zc;

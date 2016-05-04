@@ -2,8 +2,8 @@
   height:60px;
   z-index: 999;
   display: flex;
+  background: #2e2e2e;
   .icon_home{
-    background: #aaa;
     position: relative;
     flex:0 0 60px;
     &::after{
@@ -13,21 +13,59 @@
       top:50%;
       left:50%;
       transform: translate(-50%,-50%);
-      cursor: pointer;
     }
   }
   .nav{
     flex:1;
     display: flex;
-    background: #2e2e2e;
     justify-content: center;
     ul{
       display: flex;
       li{
         a{
+          height:100%;
+          display: block;
+          line-height: 60px;
+          padding: 0 8px;
+          font-size: 18px;
           text-align: center;
+          color: #fff;
+          position: relative;
+          &::after{
+            content: ' ';
+            position: absolute;
+            height:2px;
+            width:100%;
+            bottom: 0;
+            background: #fff;
+            left:0;
+            display: none;
+          }
+          &:hover{
+            color: #0b97c4;
+          }
+        }
+        .active{
+          color: #0b97c4;
+          background: #555;
+          &::after{
+            display: block;
+          }
         }
       }
+    }
+  }
+  .icon_github{
+    flex:0 0 60px;
+    position: relative;
+    background: #858585;
+    &::before{
+      content: '\e902';
+      font-size: 32px;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
     }
   }
 }

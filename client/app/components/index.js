@@ -8,10 +8,7 @@ class App extends Component{
         return(
             <div className='root'>
                 <Header navList={[
-                    {path:'/',name:'主页'},
-                    {path:'/learn',name:'学习'},
-                    {path:'/ask',name:'问答'},
-                    {path:'/prize',name:'抽奖'}
+                    {path:'/components',name:'组件'}
                 ]}/>
                 {
                     /*

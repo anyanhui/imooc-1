@@ -1,0 +1,32 @@
+.container{
+  .item{
+    display: block;
+    height:40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #666;
+    position: relative;
+    &::after{
+      content: ' ';
+      position: absolute;
+      right: -2px;
+      top:0;
+      height: 100%;
+      width: 4px;
+      background: #0b97c4;
+      display: none;
+    }
+    &:hover{
+      color: #0b97c4;
+      &::after{
+        display: block;
+      }
+    }
+  }
+  .active{
+    color: #0b97c4;
+    &::after{
+      display: block;
+    }
+  }
+}
