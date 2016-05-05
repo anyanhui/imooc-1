@@ -45,6 +45,10 @@ html {
 body {
     min-width: 1000px;
     height:100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     -webkit-font-smoothing: antialiased;
     background: url("../img/sws/theme_neptune.png") no-repeat fixed 0 0/100% 100%;
 }

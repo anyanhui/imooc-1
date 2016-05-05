@@ -5,16 +5,13 @@
   height: 250px;
   background: #fff;
   box-shadow: 0 10px 20px #333;
-  //background: -webkit-linear-gradient(left,#000000,#fff);
   header{
     flex:0 0 40px;
     border-bottom: 1px solid #858585;
     position: relative;
-    h3{
-      height: 100%;
-      text-align: center;
-      line-height: 40px;
-    }
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
   }
   .main{
     flex:1;

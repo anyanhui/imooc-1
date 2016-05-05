@@ -1,23 +1,29 @@
 .container{
-  display: block;
   position: relative;
-  background: #0b97c4;
-  width: 50px;
-  height: 30px;
+  border: 1px solid #858585;
+  width: 82px;
+  height: 32px;
   border-radius: 4px;
-  box-shadow: 0 0 10px #000;
-  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: box-shadow .3s;
   span{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    color: #fff;
+    display: inline-block;
+    height: 100%;
+    line-height: 32px;
+    img{
+      max-height: 100%;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
   }
   &:active{
-    background: #2B81AF;
+    opacity: 0.8;
   }
-  &:focus{
-    border: 1px solid #f5f5f5;
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0 0 14px #000;
   }
 }

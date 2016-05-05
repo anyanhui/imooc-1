@@ -32,9 +32,11 @@ class Zc extends Component{
     }
     render(){
         let sideBarList=[
-            {name:'button 按钮',path:'/Button'},
-            {name:'panel 面板',path:'Panel'},
-            {name:'grid 表格',path:'Grid'}
+            {name:'Button 按钮',path:'/button'},
+            {name:'Card 卡片',path:'/card'},
+            {name:'Tab页',path:'/tab'},
+            {name:'Panel 面板',path:'panel'},
+            {name:'Grid 表格',path:'grid'}
         ];
         return(
             <div className={styles.container}>
