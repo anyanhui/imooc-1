@@ -1,0 +1,12 @@
+.btn {
+    display: block;
+    background: #157fcc;
+    width: 45px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    appearance: button;
+    cursor: pointer;
+    /*appearance: normal;*/
+}

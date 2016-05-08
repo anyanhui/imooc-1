@@ -110,7 +110,10 @@ var config = {
         ],
         plugins: [
             "transform-decorators-legacy",
-            "transform-es2015-modules-commonjs"
+            "transform-es2015-modules-commonjs",
+            "antd", {
+                style: 'css'
+            }
         ]
     },
     resolve: {
