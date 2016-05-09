@@ -1,4 +1,14 @@
 import {is} from 'immutable';
+/*
+规定必须返回一个函数(且返回的参数是你需要注入该mixin的组件)，如果需要根据不同参数返回不同结果，可以在外面再套一层函数,
+ mixin(component,shouldUpdate(arguments));
+如：
+ */
+//export default (arguments)=>component=>({
+//    /*
+//    相关操作...
+//     */
+//})
 export default component=>({
     shouldComponentUpdate(nextProps = {}, nextState = {}){
         const thisProps = component.props || {}, thisState = component.state || {};

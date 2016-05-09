@@ -1,4 +1,4 @@
-var mixinForComponent = (mixinFun, component)=> {
+function mixinForComponent(mixinFun, component){
     let mixinObj = mixinFun(component);
     let keys = Object.keys(mixinObj);
     let keysLen = keys.length;
@@ -11,6 +11,12 @@ var mixinForComponent = (mixinFun, component)=> {
         }
     }
 }
+/*
+代替mixin：
+用法mixin(component,mixins);
+第一个参数component是需要加入mixin的组件，
+第二个参数mixins就是你自己写的需要注入到组件的minxin
+ */
 export default (component, mixins = [])=> {
     if (typeof mixins === 'function') {
         mixinForComponent(mixins, component);

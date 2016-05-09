@@ -38,6 +38,22 @@ export default {
                             cb(null,require('../components/TabPage')['default'])
                         },'tab')
                     }
+                },
+                {
+                    path:'/slider',
+                    getComponents(next,cb){
+                        require.ensure([],require=>{
+                            cb(null,require('../components/SliderPage')['default'])
+                        },'slider')
+                    }
+                },
+                {
+                    path:'/table',
+                    getComponents(next,cb){
+                        require.ensure([],require=>{
+                            cb(null,require('../components/TablePage')['default'])
+                        },'table')
+                    }
                 }
             ]
         }

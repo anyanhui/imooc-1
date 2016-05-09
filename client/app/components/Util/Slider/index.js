@@ -2,15 +2,24 @@ import React,{PropTypes,Component,Children} from 'react';
 import Item from './Item';
 import styles from './slider.scss';
 import cls from 'classnames';
-//import mixin from '../Mixins/mixins';
-//import {shouldUpdate} from '../Mixins/shouldUpdate';
+import mixin from '../../Mixins/mixins';
+import shouldUpdate from '../../Mixins/shouldUpdate';
+/*
+轮播组件：
+ dot：是否显示轮播点
+ arrow：是否显示左右箭头
+ active:当前活动页
+ autoPlay：是否自动轮播
+ width：轮播组件宽
+ height：轮播组件高
+ */
 class Slider extends Component{
     constructor(props){
         super(props);
         this.state={
             active:this.props.active||1
         };
-        //mixin(this,shouldUpdate);
+        mixin(this,shouldUpdate);
     }
     static Item=Item;
     prevClick(active){
@@ -46,6 +55,9 @@ class Slider extends Component{
     componentDidMount(){
         this.startAutoPlay();
     }
+    componentWillUnmount(){
+        clearInterval(this.autoPlayFlag);
+    }
     render(){
         const {
             dot=true,
@@ -62,7 +74,7 @@ class Slider extends Component{
                 {
                     Children.map(children, (item,i) => {
                         return(
-                            <div className={cls({
+                            <div key={i} className={cls({
                                 [styles.sliders]:true,
                                 [styles.active_slider]:i===active-1
                             })}>
@@ -75,7 +87,7 @@ class Slider extends Component{
                     {
                         dot?Children.map(children, (item,i) => {
                             return(
-                                <li className={cls({
+                                <li key={i} className={cls({
                                     [styles.dot]:true,
                                     [styles.active_dot]:i===active-1
                                 })} onClick={()=>this.dotClick(active,i+1)}>
