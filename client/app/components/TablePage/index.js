@@ -46,6 +46,9 @@ const data = [{
     address: '西湖区湖底公园1号'
 }];
 export default class extends Component{
+    componentDidMount(){
+
+    }
     render(){
         return(
             <Table columns={columns} dataSource={data} />
