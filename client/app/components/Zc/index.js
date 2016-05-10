@@ -36,7 +36,7 @@ class Zc extends Component{
             {name:'Card 卡片',path:'/card'},
             {name:'Tab页',path:'/tab'},
             {name:'Slider轮播器',path:'/slider'},
-            {name:'Panel 面板',path:'panel'},
+            {name:'Loading...',path:'loading'},
             {name:'Table 表格',path:'table'}
         ];
         return(

@@ -54,6 +54,14 @@ export default {
                             cb(null,require('../components/TablePage')['default'])
                         },'table')
                     }
+                },
+                {
+                    path:'/loading',
+                    getComponents(next,cb){
+                        require.ensure([],require=>{
+                            cb(null,require('../components/LoadingPage')['default'])
+                        },'loading')
+                    }
                 }
             ]
         }

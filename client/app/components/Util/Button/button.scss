@@ -8,6 +8,7 @@
   cursor: pointer;
   text-align: center;
   overflow: hidden;
+  color: #fff;
   transition: box-shadow .3s;
   span{
     display: inline-block;
@@ -26,4 +27,19 @@
     cursor: pointer;
     box-shadow: 0 0 14px #000;
   }
+}
+.default{
+  color: #333;
+}
+.primary{
+  background: #428ccb;
+}
+.success{
+  background: #5bb85d;
+}
+.warning{
+  background: #efad4c;
+}
+.danger{
+  background: #d9544f;
 }

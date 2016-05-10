@@ -1,36 +1,42 @@
 import React,{PropTypes,Component} from 'react';
 import styles from './loading.scss';
 /*
-加载等待loading:
-    num:出现几个旋转的小球
-    r:装载小球的容器的半径
-    loading:是否出现loading标志
-    color:小球的颜色
+加载等待的loading：
+    type:根据不同的type显示不同类型的loading，有1,2,3,4四种类型可选择
+    loading:是否显示loading
  */
 export default class extends Component{
+    static propTypes={
+        type:PropTypes.oneOf(['1', '2','3','4']),
+        loading:PropTypes.bool
+    };
     render(){
-        const {num=10,r=16,color='#2e2e2e',loading=false}=this.props;
-        var items=[],
-            everyAngle=360/num;
+        const {type='1',loading=false}=this.props;
+        let num;
+        let items=[];
+        switch (type){
+            case '2':
+                num=5;
+                break;
+            case '3':
+                num=3;
+                break;
+            case '4':
+                num=2;
+                break;
+            default:num=8;
+        }
         for(let i=0;i<num;i++){
-            let angle=i*everyAngle*(Math.PI/180);
-            let top=r+r*Math.sin(angle);
-            let left=r+r*Math.cos(angle);
             items.push(
-                <i key={i} style={{
-                top:top,left:left,
-                width:r/2,height:r/2,
-                color:color,
-                transform:`scale(${i/10})`
-                }}>
-
-                </i>
-            );
+                <i key={i}></i>
+            )
         }
         return(
             <div className={styles.container} style={{display:loading?'block':'none'}}>
-                <span className={styles.modal}></span>
-                <span className={styles.loading} style={{width:2*r,height:2*r}}>
+                <span className={styles.modal}>
+
+                </span>
+                <span className={`${styles['loading-'+type]} ${styles.loading}`}>
                     {items}
                 </span>
             </div>
