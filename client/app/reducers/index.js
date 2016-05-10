@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import gridReduce from './gridReduce';
+import tableReduce from './tableReduce';
 export const rootReducer=combineReducers({
-   grid:gridReduce
+   table:tableReduce
 });

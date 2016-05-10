@@ -1,5 +1,8 @@
 import React,{PropTypes,Component} from 'react';
 import { Table } from 'antd';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../../actions/TableAction';
 const columns = [{
     title: '姓名',
     dataIndex: 'name',
@@ -29,27 +32,18 @@ const columns = [{
         );
     }
 }];
-const data = [{
-    key: '1',
-    name: '胡彦斌',
-    age: 32,
-    address: '西湖区湖底公园1号'
-}, {
-    key: '2',
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园1号'
-}, {
-    key: '3',
-    name: '李大嘴',
-    age: 32,
-    address: '西湖区湖底公园1号'
-}];
+@connect(
+    //注意：这里的table一定要和rootReduce中的{table:tableReduce}对应
+    (state)=>({table:state.table}),
+    (dispatch)=>({actions:bindActionCreators(actionCreators,dispatch)})
+)
 export default class extends Component{
     componentDidMount(){
-
+        const {actions}=this.props;
+        actions.loadData('client/public/data/table.json');
     }
     render(){
+        const data=this.props.table.get('data');
         return(
             <Table columns={columns} dataSource={data} />
         )
