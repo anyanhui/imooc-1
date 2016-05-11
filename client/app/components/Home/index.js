@@ -3,6 +3,7 @@ import styles from './home.scss';
 import Card from '../Util/Card';
 class Home extends Component {
     render() {
+        const Item=Card.Item;
         const list=[{
             title:'ReactJs'
         },{
@@ -18,11 +19,13 @@ class Home extends Component {
         },{
             title:'ES6'
         }];
-        const items=list.map((item,i)=>{
+        let items=list.map((item,i)=>{
             return(
                 <div key={i} className={styles.card}>
-                    <Card title={item.title} href={item.href}>
-
+                    <Card>
+                        <Item position="top">
+                            <span>{item.title}</span>
+                        </Item>
                     </Card>
                 </div>
             )

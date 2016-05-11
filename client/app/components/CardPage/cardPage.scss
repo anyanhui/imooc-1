@@ -1,7 +1,28 @@
 .container{
-  height: 100%;
+  padding: 0 20px;
+  flex:1;
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
-  align-content: space-between;
+  align-items: center;
+  position: relative;
+  .content1{
+    flex:1;
+    background: #5bb85d;
+  }
+  .content2{
+    flex:1;
+    background: #0b97c4;
+  }
+  .content3{
+    flex:1;
+    background: #0D3349;
+  }
+  .content4{
+    flex:1;
+    background: #710909;
+  }
+  .content5{
+    flex:1;
+    background: #b4b472;
+  }
 }

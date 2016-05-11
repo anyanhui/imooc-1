@@ -28,21 +28,19 @@ export default class extends Component {
     }
     render() {
         let {type,loading}=this.state;
+        const Item=Card.Item;
         return (
             <div className={styles.container}>
-                <Card title="点击下面按钮显示不同loading..."
-                      style={{width:500,height:400}}
-                      flex={{
-                        justifyContent:'space-around',
-                        alignItems:'center',
-                        flexWrap:'wrap',
-                        alignContent:'space-around'
-                      }}
-                >
-                    <Button text="type为1" type="primary" handler={::this.handlerClick}/>
-                    <Button text="type为2" type="primary" handler={::this.handlerClick}/>
-                    <Button text="type为3" type="primary" handler={::this.handlerClick}/>
-                    <Button text="type为4" type="primary" handler={::this.handlerClick}/>
+                <Card>
+                    <Item position="top">
+                        <h2>点击下面按钮显示不同loading...</h2>
+                    </Item>
+                    <Item position="center">
+                        <Button text="type为1" type="primary" handler={::this.handlerClick}/>
+                        <Button text="type为2" type="primary" handler={::this.handlerClick}/>
+                        <Button text="type为3" type="primary" handler={::this.handlerClick}/>
+                        <Button text="type为4" type="primary" handler={::this.handlerClick}/>
+                    </Item>
                 </Card>
                 <Loading type={type} loading={loading}/>
             </div>

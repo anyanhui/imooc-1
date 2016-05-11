@@ -91,7 +91,7 @@ class Slider extends Component{
                                     [styles.dot]:true,
                                     [styles.active_dot]:i===active-1
                                 })} onClick={()=>this.dotClick(active,i+1)}>
-                                    <span>
+                                    <span key={i}>
                                     </span>
                                 </li>
                             )

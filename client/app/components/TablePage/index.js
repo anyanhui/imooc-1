@@ -1,4 +1,5 @@
 import React,{PropTypes,Component} from 'react';
+import styles from './table.scss';
 import { Table } from 'antd';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -45,7 +46,9 @@ export default class extends Component{
     render(){
         const data=this.props.table.get('data');
         return(
-            <Table columns={columns} dataSource={data} />
+            <div className={styles.container}>
+                <Table columns={columns} dataSource={data} />
+            </div>
         )
     }
 }

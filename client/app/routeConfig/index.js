@@ -24,6 +24,12 @@ export default {
                     }
                 },
                 {
+                    path:'button',
+                    onEnter(nextState, replaceState) {
+                        replaceState(null, '/button');
+                    }
+                },
+                {
                     path:'/card',
                     getComponents(next,cb){
                         require.ensure([],require=>{

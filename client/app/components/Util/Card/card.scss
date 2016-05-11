@@ -1,19 +1,10 @@
 .container{
+  border:1px solid #6c6c6c;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  width:300px;
-  height: 250px;
-  background: #fff;
-  box-shadow: 0 10px 20px #333;
-  header{
-    flex:0 0 40px;
-    border-bottom: 1px solid #858585;
-    position: relative;
-    text-align: center;
-    line-height: 40px;
-    font-size: 16px;
-  }
-  .main{
+  .content{
     flex:1;
+    display: flex;
   }
 }
