@@ -17,9 +17,9 @@ export default class extends Component {
                 <Button text="警告" type="warning"/>
                 <Button text="危险" type="danger"/>
                 <Button text="自定义"
-                        icon="http://www.easyicon.net/api/resizeApi.php?id=1191766&size=24"
+                        icon="client/public/img/icons/save.gif"
                         handler={::this.handlerClick}
-                        style={{background:'#418bca',color:'#fff'}}
+                        style={{background:'#ddd',color:'#333'}}
                 />
             </div>
         )

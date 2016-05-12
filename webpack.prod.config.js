@@ -37,7 +37,7 @@ var config = {
     entry: {
         app: [
             'babel-polyfill',
-            './client/app'
+            './client/app/app'
         ],
         vendor: [
             'react',
@@ -46,7 +46,7 @@ var config = {
     },
     output: {
         path: path.join(__dirname, '/dist'),
-        publicPath: './dist',
+        publicPath: './dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },

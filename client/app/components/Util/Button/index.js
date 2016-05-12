@@ -10,18 +10,25 @@ import styles from './button.scss';
         (button:表示按钮本身可以通过这个获取按钮各种信息,event:事件信息)
  */
 class Button extends Component {
+    static propTypes={
+        type:PropTypes.oneOf(['default','primary','success','warning','danger']),
+        style:PropTypes.object,
+        text:PropTypes.string,
+        icon:PropTypes.string,
+        handler:PropTypes.func
+    };
     render() {
         const {
             style={},
             type='default',
             text='',
             icon='',
-            handler=''
+            handler=()=>{}
             }=this.props;
         return (
             <div style={style}
                     className={`${styles.container} ${styles[type]}`}
-                    onClick={(event)=>handler?handler(this,event):null}
+                    onClick={(event)=>handler(this,event)}
             >
                 <span style={{lineHeight:`${style.height||30}px`}}>
                     <img src={icon} alt=""/>
