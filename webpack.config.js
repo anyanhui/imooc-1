@@ -76,6 +76,10 @@ var config = {
             test: /\.scss/,
             exclude: /node_modules/,
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
+        },{
+            test: /\.less$/,
+            //exclude: /node_modules/,
+            loader: "style!css!postcss!less"
         }, {
             test: /\.css$/,
             //exclude: /node_modules/,
@@ -109,9 +113,9 @@ var config = {
             "react"
         ],
         plugins: [
-            "transform-decorators-legacy",
-            "transform-es2015-modules-commonjs",
-            ["antd"]
+            "transform-decorators-legacy",//对es7修饰器特性的支持
+            "antd",
+            //["antd",{style:'css'}]
         ]
     },
     resolve: {

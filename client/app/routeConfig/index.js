@@ -17,16 +17,11 @@ export default {
             childRoutes:[
                 {
                     path:'/button',
+                    //onEnter: ({ params },replace) => replace(`/button/${params.id}`),
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/ButtonPage')['default'])
                         },'button')
-                    }
-                },
-                {
-                    path:'button',
-                    onEnter(nextState, replaceState) {
-                        replaceState(null, '/button');
                     }
                 },
                 {

@@ -59,6 +59,9 @@ var config = {
             test: /\.scss/,
             exclude: /node_modules/,
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
+        },{
+            test: /\.less$/,
+            loader: "style!css!postcss!less"
         }, {
             test: /\.css$/,
             loader: "style!css!postcss"
@@ -83,8 +86,7 @@ var config = {
         ],
         plugins: [
             "transform-decorators-legacy",
-            "transform-es2015-modules-commonjs",
-            ["antd"]
+            "antd"
         ]
     },
     resolve: {

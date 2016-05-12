@@ -14,13 +14,13 @@ class Zc extends Component{
     //    router: PropTypes.object.isRequired
     //};
     //componentWillMount() {
-    //    除了通过context凡是获取router之外现在还可以通过withRouter高阶函数来获取(更方便)
     //    this.context.router.setRouteLeaveHook(
     //        this.props.route,
     //        this.routerWillLeave
     //    )
     //}
     componentWillMount(){
+        //通过withRouter高阶函数修饰后可以直接通过props来获取router信息
         this.props.router.setRouteLeaveHook(
             this.props.route,
             nextLocation=>this.routerWillLeave(nextLocation)
@@ -36,8 +36,8 @@ class Zc extends Component{
             {name:'Card 卡片',path:'/card'},
             {name:'Tab页',path:'/tab'},
             {name:'Slider轮播器',path:'/slider'},
-            {name:'Loading...',path:'loading'},
-            {name:'Table 表格',path:'table'}
+            {name:'Loading...',path:'/loading'},
+            {name:'Table 表格',path:'/table'}
         ];
         return(
             <div className={styles.container}>
