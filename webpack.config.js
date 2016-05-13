@@ -83,7 +83,7 @@ var config = {
         }, {
             test: /\.css$/,
             //exclude: /node_modules/,
-            loader: "style!css!postcss"
+            loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
             loader: 'url?limit=10000'
@@ -95,7 +95,7 @@ var config = {
     //postCss插件
     postcss: [
         //可以像sass那样写postcss
-        //require('precss')(),
+        require('precss')(),
         //require('cssnext')(),//试用未来的css语法
         require('cssnano')(),//优化和压缩css代码
         //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import styles from './header.scss';
+import styles from './header.css';
 import {Link,IndexLink} from 'react-router';
 class Header extends Component{
     render(){
