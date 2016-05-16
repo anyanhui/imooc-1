@@ -64,7 +64,12 @@ var config = {
             loader: "style!css!postcss!less"
         }, {
             test: /\.css$/,
-            loader: "style!css!postcss"
+            exclude: /node_modules/,
+            loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
+        },{
+            test: /\.css$/,
+            include:/node_modules/,
+            loader:'style!css'
         }, {
             test: /\.(png|jpg|svg|gif|jpeg)$/,
             loader: 'url?limit=10000'
@@ -74,7 +79,10 @@ var config = {
         }]
     },
     postcss: [
+        require('precss')(),
+        //require('postcss-cssnext')(),
         require('cssnano')(),
+        require('postcss-alias')(),
         require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
