@@ -1,4 +1,4 @@
-﻿﻿var webpack = require('webpack');
+﻿var webpack=require('webpack');
 var path = require('path');
 //var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var getPxToRemoptions=function(rootValue){
@@ -106,7 +106,7 @@ var config = {
         //require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('autoprefixer')()//该功能已被包含在postcss-cssnext中
         /*
-        移动端web一般才会用到下面这个
+         移动端web一般才会用到下面这个
          */
         //require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
     ],
