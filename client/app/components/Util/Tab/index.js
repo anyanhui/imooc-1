@@ -4,6 +4,7 @@ import Item from './Item';
 import cls from 'classnames';
 export default class extends Component{
     constructor(props){
+        //这里需要调用super(props)才能在下面获取this.props
         super(props);
         this.state={
             active:this.props.active||0

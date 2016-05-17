@@ -45,7 +45,7 @@ var config = {
         ]
     },
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, 'dist'),
         publicPath: './dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
@@ -80,10 +80,10 @@ var config = {
     },
     postcss: [
         require('precss')(),
-        //require('postcss-cssnext')(),
+        require('postcss-cssnext')(),
         require('cssnano')(),
         require('postcss-alias')(),
-        require('autoprefixer')({browsers: ['last 2 versions']}),
+        //require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
     babel:{
@@ -94,7 +94,8 @@ var config = {
         ],
         plugins: [
             "transform-decorators-legacy",
-            "antd"
+            ["antd",{style:'css'}]
+
         ]
     },
     resolve: {

@@ -62,7 +62,7 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: 'http://localhost:3000/dist/',
+        publicPath: './dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
@@ -119,8 +119,7 @@ var config = {
         ],
         plugins: [
             "transform-decorators-legacy",//对es7修饰器特性的支持
-            "antd",
-            //["antd",{style:'css'}]
+            ["antd",{style:'css'}]
         ]
     },
     resolve: {
