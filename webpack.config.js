@@ -1,6 +1,6 @@
 ﻿var webpack=require('webpack');
 var path = require('path');
-//var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var getPxToRemoptions=function(rootValue){
     var propWhiteList=[
         'width',
@@ -83,6 +83,7 @@ var config = {
         }, {
             test: /\.css$/,
             exclude: /node_modules/,
+            //loader:  ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader"),
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         },{
             test: /\.css$/,
