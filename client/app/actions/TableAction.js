@@ -8,8 +8,8 @@ export function loadData(url,param){
                 type:'LOAD',
                 data:data.data
             })
-        }catch (err){
-            console.log(err);
+        }catch (error){
+            console.log(error);
         }
     }
 }

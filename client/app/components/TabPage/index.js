@@ -8,14 +8,14 @@ export default class extends Component{
         return(
             <div className={styles.container}>
                 <Tab>
-                    <Item title="默认">
-                        <Button text="默认"/>
+                    <Item title="标准">
+                        <Button text="标准"/>
                     </Item>
                     <Item title="警告">
-                        <Button text="警告" style={{background:'#efad4c',color:'#fff'}}/>
+                        <Button text="警告" type="warning"/>
                     </Item>
                     <Item title="危险">
-                        <Button text="危险" style={{background:'#d9544f',color:'#fff'}}/>
+                        <Button text="危险" type="danger"/>
                     </Item>
                 </Tab>
             </div>

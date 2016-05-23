@@ -26,7 +26,7 @@ var getPxToRemoptions=function(rootValue){
         minPixelValue: 0
     };
 }
-//var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var plugins = [
     //new webpack.optimize.CommonsChunkPlugin('common.js'),
     //new CommonsChunkPlugin("admin-commons.js", ["ap1", "ap2"])
@@ -51,7 +51,7 @@ var config = {
     entry: {
         app: [
             'webpack-dev-server/client?http://localhost:3000',
-            'webpack/hot/only-dev-server',
+            //'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/app'
         ],
@@ -61,13 +61,20 @@ var config = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'dist'),
-        publicPath: './dist/',
+        path: path.join(__dirname, 'build'),
+        //publicPath: 'http://localhost:3000/dist/',
+        publicPath:'./build/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
     //watch:true,
     module: {
+        // 使用module.noParse针对单独的react.min.js这类没有依赖的模块，速度会更快
+        noParse: [
+            path.resolve(nodeModulesPath, 'react/dist/react.min.js'),
+            path.resolve(nodeModulesPath, 'react-dom/dist/react-dom.min.js'),
+            path.resolve(nodeModulesPath, 'redux/dist/redux.min.js')
+        ],
         loaders: [{
             test: /\.jsx?$/,
             exclude: /node_modules/,
@@ -78,7 +85,7 @@ var config = {
             loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
         },{
             test: /\.less$/,
-            //exclude: /node_modules/,
+            exclude: /node_modules/,
             loader: "style!css!postcss!less"
         }, {
             test: /\.css$/,
@@ -124,11 +131,12 @@ var config = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.scss', '.css', '.jsx']
+        extensions: ['', '.js', '.scss', '.css', '.jsx'],
         //alias: {
-        //    'react':path.resolve(nodeModulesPath,'react/dist/react.js'),
-        //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.js'),
-        //    'immutable':path.resolve(nodeModulesPath,'immutable/dist/immutable.js')
+        //    'react':path.resolve(nodeModulesPath,'react/dist/react.min.js'),
+        //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.min.js'),
+        //    'redux':path.resolve(nodeModulesPath,'redux/dist/redux.min.js'),
+        //    'react-redux':path.resolve(nodeModulesPath,'react-redux/dist/react-redux.min.js')
         //}
     },
     devServer: {
@@ -138,7 +146,8 @@ var config = {
         hot: true,        //自动刷新
         inline: true,
         port: 3000,
-        progress: true
+        progress: true,
+        stats: { colors: true }
     },
     //externals:{
     //    'react':'React'//CDN
