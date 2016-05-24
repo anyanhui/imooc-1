@@ -17,7 +17,7 @@ export default class extends Component {
                 <Button text="警告" type="warning"/>
                 <Button text="危险" type="danger"/>
                 <Button text="自定义"
-                        icon="public/img/icons/save.gif"
+                        icon="assets/img/icons/save.gif"
                         handler={::this.handlerClick}
                         style={{background:'#ddd',color:'#333'}}
                 />

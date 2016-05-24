@@ -41,7 +41,7 @@ const columns = [{
 export default class extends Component{
     componentDidMount(){
         const {actions}=this.props;
-        actions.loadData('public/data/table.json');
+        actions.loadData('assets/data/table.json');
     }
     render(){
         const data=this.props.table.get('data');

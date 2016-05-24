@@ -28,7 +28,7 @@ class Button extends Component {
         return (
             <div style={style}
                     className={`${styles.container} ${styles[type]}`}
-                    onClick={(event)=>handler(this,event)}
+                    onClick={event=>handler(this,event)}
             >
                 <span style={{lineHeight:`${style.height||30}px`}}>
                     <img src={icon} alt=""/>

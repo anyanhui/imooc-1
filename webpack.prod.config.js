@@ -22,7 +22,6 @@ var plugins = [
         name: 'vendor',
         minChunks: Infinity
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false
@@ -45,8 +44,8 @@ var config = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'dist'),
-        publicPath: './dist/',
+        path: path.join(__dirname, 'assets/dist'),
+        publicPath: '/assets/dist',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
@@ -80,10 +79,10 @@ var config = {
     },
     postcss: [
         require('precss')(),
-        require('postcss-cssnext')(),
+        //require('postcss-cssnext')(),
         require('cssnano')(),
-        require('postcss-alias')(),
-        //require('autoprefixer')({browsers: ['last 2 versions']}),
+        //require('postcss-alias')(),
+        require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
     babel:{

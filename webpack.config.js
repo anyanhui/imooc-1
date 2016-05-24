@@ -50,10 +50,8 @@ var plugins = [
 var config = {
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:3000',
-            //'webpack/hot/only-dev-server',
             'babel-polyfill',//为了能支持async,await,Generator
-            './client/app/app'
+            './client/app/'
         ],
         vendor: [
             'react',
@@ -61,13 +59,14 @@ var config = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'build'),
-        //publicPath: 'http://localhost:3000/dist/',
-        publicPath:'./build/',
+        path: path.join(__dirname, 'assets/dist'),
+        publicPath: '/assets/dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },
-    //watch:true,
+    resolveLoader: {
+        root: path.join(__dirname, 'node_modules')
+    },
     module: {
         // 使用module.noParse针对单独的react.min.js这类没有依赖的模块，速度会更快
         noParse: [
@@ -108,10 +107,10 @@ var config = {
     postcss: [
         //可以像sass那样写postcss
         require('precss')(),
-        require('postcss-cssnext')(),//试用未来的css语法
+        //require('postcss-cssnext')(),//试用未来的css语法
         require('cssnano')(),//优化和压缩css代码
-        require('postcss-alias')()//设置css属性别名如：@alias {w:width;h:height;}
-        //require('autoprefixer')({browsers: ['last 2 versions']}),
+        //require('postcss-alias')(),//设置css属性别名如：@alias {w:width;h:height;}
+        require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('autoprefixer')()//该功能已被包含在postcss-cssnext中
         /*
          移动端web一般才会用到下面这个
@@ -132,12 +131,12 @@ var config = {
     },
     resolve: {
         extensions: ['', '.js', '.scss', '.css', '.jsx'],
-        //alias: {
-        //    'react':path.resolve(nodeModulesPath,'react/dist/react.min.js'),
-        //    'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.min.js'),
-        //    'redux':path.resolve(nodeModulesPath,'redux/dist/redux.min.js'),
-        //    'react-redux':path.resolve(nodeModulesPath,'react-redux/dist/react-redux.min.js')
-        //}
+        alias: {
+            'react':path.resolve(nodeModulesPath,'react/dist/react.js'),
+            'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.js'),
+            'redux':path.resolve(nodeModulesPath,'redux/dist/redux.js'),
+            'react-redux':path.resolve(nodeModulesPath,'react-redux/dist/react-redux.js')
+        }
     },
     devServer: {
         historyApiFallback: true,

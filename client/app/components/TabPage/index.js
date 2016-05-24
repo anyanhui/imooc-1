@@ -9,7 +9,7 @@ export default class extends Component{
             <div className={styles.container}>
                 <Tab>
                     <Item title="标准">
-                        <Button text="标准"/>
+                        <Button text="标准" type="primary"/>
                     </Item>
                     <Item title="警告">
                         <Button text="警告" type="warning"/>

@@ -10,10 +10,5 @@ app.get('/', (req, res)=> {
         title: 'react-mobile'
     });
 });
-app.get('/gl',(req,res)=>{
-    res.render('gl.ejs', {
-        title: 'react-pc'
-    });
-});
 app.listen(port);
 console.log(`project started on port:${port}`);
