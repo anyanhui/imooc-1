@@ -41,7 +41,7 @@ var plugins = [
         }
     }),
     //单独打包css文件，然后以link形式引入,可以加第二个参数{allChunks: true}表示合并多个css文件
-    //new ExtractTextPlugin("index.css"),
+    new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"development"'
@@ -88,8 +88,11 @@ var config = {
             loader: "style!css!postcss!less"
         }, {
             test: /\.css$/,
-            exclude: /node_modules/,
-            //loader:  ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader"),
+            include:[path.join(__dirname,'assets/css/')],
+            loader:"style!css!postcss"
+        },{
+            test: /\.css$/,
+            include:[path.join(__dirname,'client/')],
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         },{
             test: /\.css$/,

@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var getPxToRemoptions = function (rootValue) {
     var propWhiteList = [
         'width',
@@ -27,6 +28,7 @@ var plugins = [
             warnings: false
         }
     }),
+    new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
@@ -61,9 +63,13 @@ var config = {
         },{
             test: /\.less$/,
             loader: "style!css!postcss!less"
+        },{
+            test: /\.css$/,
+            include:[path.join(__dirname,'assets/css/')],
+            loader:"style!css!postcss"
         }, {
             test: /\.css$/,
-            exclude: /node_modules/,
+            include:[path.join(__dirname,'client/')],
             loader: "style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss"
         },{
             test: /\.css$/,
