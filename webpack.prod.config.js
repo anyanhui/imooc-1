@@ -66,7 +66,7 @@ var config = {
         },{
             test: /\.css$/,
             include:[path.join(__dirname,'assets/css/')],
-            loader:"style!css!postcss"
+            loader:ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
         }, {
             test: /\.css$/,
             include:[path.join(__dirname,'client/')],
