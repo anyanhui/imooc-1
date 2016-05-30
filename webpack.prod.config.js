@@ -21,6 +21,7 @@ var getPxToRemoptions = function (rootValue) {
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
+        filename:'vendor.bundle.js',
         minChunks: Infinity
     }),
     new webpack.optimize.UglifyJsPlugin({
@@ -38,7 +39,7 @@ var config = {
     entry: {
         app: [
             'babel-polyfill',
-            './client/app/app'
+            './client/app/'
         ],
         vendor: [
             'react',
