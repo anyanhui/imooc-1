@@ -58,11 +58,11 @@ var plugins = [
     //    $: 'jquery'
     //}),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false
-        }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //         warnings: false
+    //     }
+    // }),
     //单独打包css文件，然后以link形式引入,可以加第二个参数{allChunks: true}表示合并多个css文件
     new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),//去除重复引入的js代码
