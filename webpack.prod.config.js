@@ -29,6 +29,7 @@ var plugins = [
             warnings: false
         }
     }),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin("[name].css",{allChunks: true}),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
@@ -43,7 +44,8 @@ var config = {
         ],
         vendor: [
             'react',
-            'react-dom'
+            'react-dom',
+            'redux'
         ]
     },
     output: {
@@ -92,18 +94,6 @@ var config = {
         require('autoprefixer')({browsers: ['last 2 versions']}),
         //require('postcss-pxtorem')(getPxToRemoptions(75))
     ],
-    babel:{
-        presets: [
-            "es2015",
-            "stage-0",
-            "react"
-        ],
-        plugins: [
-            "transform-decorators-legacy",
-            ["antd",{style:'css'}]
-
-        ]
-    },
     resolve: {
         extensions: ['', '.js', '.scss', '.css', '.jsx']
     },

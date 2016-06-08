@@ -57,6 +57,7 @@ var plugins = [
     //new webpack.ProvidePlugin({
     //    $: 'jquery'
     //}),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     // new webpack.optimize.UglifyJsPlugin({
     //     compress: {
@@ -73,12 +74,14 @@ var plugins = [
 var config = {
     entry: {
         app: [
+            'webpack-hot-middleware/client?reload=true',
             'babel-polyfill',//为了能支持async,await,Generator
             './client/app/'
         ],
         vendor: [
             'react',
-            'react-dom'
+            'react-dom',
+            'redux'
         ]
     },
     output: {
@@ -143,37 +146,19 @@ var config = {
          */
         //require('postcss-pxtorem')(getPxToRemoptions(32))//75是iphone6的尺寸/10
     ],
-    //babel插件
-    babel:{
-        presets: [
-            "es2015",
-            "stage-0",
-            "react"
-        ],
-        plugins: [
-            "transform-decorators-legacy",//对es7修饰器特性的支持
-            ["antd",{style:'css'}]
-        ]
-    },
     resolve: {
-        extensions: ['', '.js', '.scss', '.css', '.jsx'],
-        alias: {
-            'react':path.resolve(nodeModulesPath,'react/dist/react.js'),
-            'react-dom':path.resolve(nodeModulesPath,'react-dom/dist/react-dom.js'),
-            'redux':path.resolve(nodeModulesPath,'redux/dist/redux.js'),
-            'react-redux':path.resolve(nodeModulesPath,'react-redux/dist/react-redux.js')
-        }
+        extensions: ['', '.js', '.scss', '.css', '.jsx']
     },
-    devServer: {
-        historyApiFallback: true,
-        contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
-        noInfo: true, //  --no-info option
-        hot: true,        //自动刷新
-        inline: true,
-        port: 3000,
-        progress: true,
-        stats: { colors: true }
-    },
+    // devServer: {
+    //     historyApiFallback: true,
+    //     contentBase: '',  //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+    //     noInfo: true, //  --no-info option
+    //     hot: true,        //自动刷新
+    //     inline: true,
+    //     port: 3000,
+    //     progress: true,
+    //     stats: { colors: true }
+    // },
     //externals:{
     //    'react':'React'//CDN
     //},
