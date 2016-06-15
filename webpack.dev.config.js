@@ -57,7 +57,7 @@ var plugins = [
     //new webpack.ProvidePlugin({
     //    $: 'jquery'
     //}),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     // new webpack.optimize.UglifyJsPlugin({
     //     compress: {
@@ -86,7 +86,7 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'assets/dist'),
-        publicPath: '/assets/dist/',
+        publicPath: 'http://localhost:3000/assets/dist/',
         chunkFilename: '[name].chunk.js',
         filename: '[name].min.js'
     },

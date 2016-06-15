@@ -7,7 +7,7 @@ export const store=createStore(
     initialState,
     compose(
         applyMiddleware(thunkMiddleware),
-        //redux开发工具(游览器端需要安装相应插件redux-devTool)，生成阶段应去掉
+        //redux开发工具(游览器端需要安装相应插件redux-devTool)，生产环境应去掉
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
 );
