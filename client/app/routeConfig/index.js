@@ -16,7 +16,7 @@ export default {
             },
             childRoutes:[
                 {
-                    path:'/button',
+                    path:'button',
                     //onEnter: ({ params },replace) => replace(`/button/${params.id}`),
                     getComponents(next,cb){
                         require.ensure([],require=>{
@@ -25,7 +25,7 @@ export default {
                     }
                 },
                 {
-                    path:'/card',
+                    path:'card',
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/CardPage')['default'])
@@ -33,7 +33,7 @@ export default {
                     }
                 },
                 {
-                    path:'/tab',
+                    path:'tab',
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/TabPage')['default'])
@@ -41,7 +41,7 @@ export default {
                     }
                 },
                 {
-                    path:'/slider',
+                    path:'slider',
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/SliderPage')['default'])
@@ -49,7 +49,7 @@ export default {
                     }
                 },
                 {
-                    path:'/table',
+                    path:'table',
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/TablePage')['default'])
@@ -57,7 +57,7 @@ export default {
                     }
                 },
                 {
-                    path:'/loading',
+                    path:'loading',
                     getComponents(next,cb){
                         require.ensure([],require=>{
                             cb(null,require('../components/LoadingPage')['default'])

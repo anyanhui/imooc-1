@@ -32,12 +32,12 @@ class Zc extends Component{
     }
     render(){
         let sideBarList=[
-            {name:'Button 按钮',path:'/button'},
-            {name:'Card 卡片',path:'/card'},
-            {name:'Tab页',path:'/tab'},
-            {name:'Slider轮播器',path:'/slider'},
-            {name:'Loading...',path:'/loading'},
-            {name:'Table 表格',path:'/table'}
+            {name:'Button 按钮',path:'/components/button'},
+            {name:'Card 卡片',path:'/components/card'},
+            {name:'Tab页',path:'/components/tab'},
+            {name:'Slider轮播器',path:'/components/slider'},
+            {name:'Loading...',path:'/components/loading'},
+            {name:'Table 表格',path:'/components/table'}
         ];
         return(
             <div className={styles.container}>
